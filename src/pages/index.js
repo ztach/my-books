@@ -39,22 +39,35 @@ const ImageWrapper = styled(Image)`
 `;
 
 const IndexPage = ({ data }) => {
+  const {
+    site: { siteMetadata: { author, title, description, subTitle } },
+    file: { childImageSharp: { fluid } },
+  } = data;
+
   return (
     <Fragment>
       <StyledWrapper>
-        <h1>Cześć książkoluby</h1>
-        <p>
-          Witam wszystkich na mojej stronie. Bazgrolę tu sobie o moich
-          ksiunżkach
-        </p>
+        <h1>{title}</h1>
+        <h2>{subTitle}</h2>
+        <p>{description}</p>
+        <span>{author}</span>
       </StyledWrapper>
-      <ImageWrapper fluid={data.file.childImageSharp.fluid} />
+      <ImageWrapper fluid={fluid} />
     </Fragment>
   );
 };
 
 export const query = graphql`
   {
+    site {
+      siteMetadata {
+        author
+        title
+        description
+        subTitle
+        welcome
+      }
+    }
     file(name: { eq: "biblioteka" }, childImageSharp: { fixed: {} }) {
       childImageSharp {
         fluid(maxWidth: 800, maxHeight: 1200, quality: 100) {
@@ -66,3 +79,18 @@ export const query = graphql`
 `;
 
 export default IndexPage;
+
+/**
+ * 
+
+
+
+
+    file(name: { eq: "biblioteka" }, childImageSharp: { fixed: {} }) {
+      childImageSharp {
+        fluid(maxWidth: 800, maxHeight: 1200, quality: 100) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+ */

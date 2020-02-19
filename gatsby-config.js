@@ -3,7 +3,9 @@ require('dotenv').config();
 module.exports = {
   siteMetadata: {
     title: `Moje książki`,
-    description: `Lista moich ulubionych książek`,
+    subTitle: 'Lista moich ulubionych książek',
+    description: `Witam wszystkich na mojej stronie. Bazgrolę tu sobie o moich ksiunżkach`,
+    welcome: 'Cześć książkoluby',
     author: `@Staszek Olejnik`,
   },
   plugins: [

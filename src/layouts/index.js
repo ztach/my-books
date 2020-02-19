@@ -37,7 +37,6 @@ const Layouts = ({ location: { pathname }, children }) => {
         <Navigation />
         <GlobalStyles />
         {children}
-        <Footer activecolor={pageType} />
       </ThemeProvider>
     </PageContext.Provider>
   );
