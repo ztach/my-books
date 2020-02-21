@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{"Cuy+":function(n,t,e){"use strict";e.r(t);var a=e("q1tI"),o=e.n(a),p=e("vOnD").d.div.withConfig({displayName:"contact__StyledWrapper",componentId:"oor64t-0"})(["padding:80px 0 0 50px;"]);t.default=function(){return o.a.createElement(p,null,o.a.createElement("h1",null,"Kontakt ze mną"),o.a.createElement("p",null,"to ja staszko"))}}}]);
+//# sourceMappingURL=component---src-pages-contact-js-7b4a3cedcd0785845a67.js.map
