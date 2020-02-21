@@ -42,17 +42,12 @@ const NavigationListItem = styled.li`
 const Navigation = () => {
   const data = useStaticQuery(graphql`
     {
-      file(name: { eq: "Logo-books" }) {
-        childImageSharp {
-          fixed(
-            height: 80
-            width: 80
-            quality: 100
-            duotone: { highlight: "#aaafff", shadow: "#11122f" }
-            rotate: 90
-          ) {
+      datoCmsIndexpagetitle {
+        logo {
+          fixed(height: 98) {
+            tracedSVG
             src
-            srcSet
+            sizes
           }
         }
       }
@@ -63,7 +58,10 @@ const Navigation = () => {
     <NavigationWrapper>
       <Logo>
         <Link to="/">
-          <img src={data.file.childImageSharp.fixed.src} alt="moje logo" />
+          <img
+            src={data.datoCmsIndexpagetitle.logo.fixed.src}
+            alt="moje logo"
+          />
         </Link>
       </Logo>
       <NavigationList>
@@ -71,7 +69,7 @@ const Navigation = () => {
           <Link to="/booksArticle">BooksArticle</Link>
         </NavigationListItem>
         <NavigationListItem>
-          <Link to="/booksGalery">BooksGalery</Link>
+          <Link to="/authorArticle">AuthorArticle</Link>
         </NavigationListItem>
         <NavigationListItem>
           <Link to="/contact">Contact</Link>

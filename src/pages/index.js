@@ -38,40 +38,42 @@ const ImageWrapper = styled(Image)`
   }
 `;
 
-const IndexPage = ({ data }) => {
-  const {
-    site: { siteMetadata: { author, title, description, subTitle } },
-    file: { childImageSharp: { fluid } },
-  } = data;
-
+const IndexPage = ({
+  data: {
+    datoCmsIndexpagetitle: {
+      author,
+      title,
+      description,
+      subtitle,
+      logo,
+      picturebiblioteka,
+    },
+  },
+}) => {
   return (
     <Fragment>
       <StyledWrapper>
         <h1>{title}</h1>
-        <h2>{subTitle}</h2>
+        <h2>{subtitle}</h2>
         <p>{description}</p>
         <span>{author}</span>
       </StyledWrapper>
-      <ImageWrapper fluid={fluid} />
+      <ImageWrapper fluid={picturebiblioteka.fluid} />
     </Fragment>
   );
 };
 
 export const query = graphql`
   {
-    site {
-      siteMetadata {
-        author
-        title
-        description
-        subTitle
-        welcome
-      }
-    }
-    file(name: { eq: "biblioteka" }, childImageSharp: { fixed: {} }) {
-      childImageSharp {
-        fluid(maxWidth: 800, maxHeight: 1200, quality: 100) {
-          ...GatsbyImageSharpFluid_tracedSVG
+    datoCmsIndexpagetitle {
+      title
+      subtitle
+      description
+      welcome
+      author
+      picturebiblioteka {
+        fluid(maxWidth: 800, maxHeight: 1200) {
+          ...GatsbyDatoCmsFluid_tracedSVG
         }
       }
     }
@@ -79,18 +81,3 @@ export const query = graphql`
 `;
 
 export default IndexPage;
-
-/**
- * 
-
-
-
-
-    file(name: { eq: "biblioteka" }, childImageSharp: { fixed: {} }) {
-      childImageSharp {
-        fluid(maxWidth: 800, maxHeight: 1200, quality: 100) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
- */

@@ -22,10 +22,16 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-layout`,
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-datocms`,
       options: {
-        apiToken: process.env.API_DATO_CMS,
+        apiToken: process.env.DATO_API_TOKEN,
+        // Preview the latest version of records instead of the published one
+        previewMode: false,
+        // Disable automatic reloading of content when some change occurs on DatoCMS:
+        disableLiveReload: false,
+        apiUrl: 'https://site-api.datocms.com',
       },
     },
     {
@@ -51,21 +57,5 @@ module.exports = {
         ],
       },
     },
-
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `gatsby-starter-default`,
-    //     short_name: `starter`,
-    //     start_url: `/`,
-    //     background_color: `#663399`,
-    //     theme_color: `#663399`,
-    //     display: `minimal-ui`,
-    //     icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-    //   },
-    // },
-    // // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };

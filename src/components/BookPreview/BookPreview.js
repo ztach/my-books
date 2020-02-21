@@ -9,34 +9,37 @@ const PreviewWrapper = styled(Link)`
   width: 70%;
   height: 360px;
   margin:auto;
-  box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.5);
-  border-radius: 10px;
 
 `;
 
 const PreviewInfoLabel = styled.div`
   position: absolute;
-  left: 0;
-  bottom: 5px;
-
+  left: -40px;
+  min-width: 350px;
   min-height: 40px;
   background-color: black;
   color: white;
   padding: 5px 15px;
+  text-align: color;
 
   h2,
   p {
     margin: 5px;
+    text-align: color;
   }
 `;
 
 const StyledImage = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 73%;
+  height: 86%;
+  border: none;
+  border: .5px solid hsla(100, 0%, 0%, 90.5);
   margin: 0 0 0 20px;
   object-fit: cover;
   background: url(${({ cover }) => cover}) no-repeat;
   background-size: 220px;
+  box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.5);
+  border-radius: 10px;
 `;
 
 const BookPreview = ({ title, image, slag }) => (

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Navigation from './../components/Navigation/Navigation';
-import Footer from '../components/Footer/Footer';
 import GlobalStyles from '../assets/styles/globalStyles';
 import { theme } from '../theme/mainTheme';
 import { ThemeProvider } from 'styled-components';
@@ -17,6 +16,7 @@ const Layouts = ({ location: { pathname }, children }) => {
           'booksArticle',
           'about',
           'contact',
+          'authorArticle',
           'booksGalery',
         ];
 

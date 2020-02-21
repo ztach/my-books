@@ -12,14 +12,15 @@ const Wrapper = styled.div`
 
   p {
     font-size: 18px;
-    margin: 15px 0 0;
+    font-weight: 200;
+    margin: 35px 0 0;
   }
 `;
 
 const PageInfo = ({ title, paragraph }) => (
   <Wrapper>
     <h1>{title}</h1>
-    <p>{paragraph}</p>
+    <p dangerouslySetInnerHTML={{ __html: paragraph }} />
   </Wrapper>
 );
 

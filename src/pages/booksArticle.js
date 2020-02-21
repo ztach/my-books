@@ -5,27 +5,23 @@ import PageInfo from './../components/PageInfo/PageInfo';
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
-  padding: 80px 0 0 50px;
+  padding: 120px 0 0 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
-  border: none;
+  grid-gap: 20px 10px;
 `;
 
-const pageData = {
-  title: 'article',
-  paragraph: `tu sobie wpiszę jakąś fajną sentencyjkę`,
-};
-
 const BooksArticlePage = ({ data }) => {
-  const { allDatoCmsBook: { nodes } } = data;
+  const { allDatoCmsBook: { nodes }, allDatoCmsBookarticle } = data;
 
   return (
     <StyledWrapper>
-      <PageInfo title={pageData.title} paragraph={pageData.paragraph} />
+      <PageInfo
+        title={allDatoCmsBookarticle.nodes[0].title}
+        paragraph={allDatoCmsBookarticle.nodes[0].description}
+      />
 
       {nodes.map(({ author, id, title, slag, okladka }) => {
-        console.log(okladka);
         return (
           <BookPreview
             key={slag}
@@ -49,6 +45,12 @@ export const query = graphql`
         title
         slag
         okladka
+      }
+    }
+    allDatoCmsBookarticle {
+      nodes {
+        title
+        description
       }
     }
   }
