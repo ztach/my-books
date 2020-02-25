@@ -6,9 +6,10 @@ import BiographyDetail from './../components/Biography/Biography';
 
 const ArticleLayoutWrapper = styled.div`
   position: relative;
-  width: 50%;
+  width: 100%;
   height: 100%;
   margin: 150px 0 0 50px;
+  text-align:justify;
   
 `;
 

@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 const PreviewWrapper = styled(Link)`
   display: black;
   position: relative;
-  width: 70%;
+  width: 80%;
   height: 360px;
   margin:auto;
 

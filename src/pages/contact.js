@@ -1,13 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 
-const StyledWrapper = styled.div`padding: 80px 0 0 50px;`;
+const StyledWrapper = styled.div`
+  padding: 150px 0 0 50px;
+  margin-right:50px;
+  text-align:justify;
 
-const ContactPage = () => (
+h2 {
+  font-size: 20px;
+  color:red;
+}
+`;
+
+const ContactPage = ({ data: { datoCmsContactpage: { contact } } }) => (
   <StyledWrapper>
-    <h1>Kontakt ze mną</h1>
-    <p>to ja staszko</p>
+
+    <div dangerouslySetInnerHTML={{ __html: contact }} />
   </StyledWrapper>
 );
 
+export const query= graphql`
+ {
+  datoCmsContactpage(id: {eq: "DatoCmsContactpage-3186131-pl"}) {
+    contact
+    id
+  }
+}
+`;
+
 export default ContactPage;
+//      
+//{ data: { datoCmsAbout: { mybody } } }

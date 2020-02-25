@@ -36,7 +36,6 @@ const StyledWrapper = styled.div`
 const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
   return (
     <StyledWrapper>
-      <h1>PRÓBA MIKROFONU</h1>
 
       <div dangerouslySetInnerHTML={{ __html: mybody }} />
     </StyledWrapper>
