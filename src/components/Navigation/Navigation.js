@@ -72,7 +72,7 @@ const Navigation = () => {
           <Link to="/authorArticle">AuthorArticle</Link>
         </NavigationListItem>
         <NavigationListItem>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact">Pisarz dnia</Link>
         </NavigationListItem>
         <NavigationListItem>
           <Link to="/about">About</Link>

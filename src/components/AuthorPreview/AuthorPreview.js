@@ -6,10 +6,10 @@ import { Link } from 'gatsby';
 const PreviewWrapper = styled(Link)`
   display: black;
   position: relative;
-  width: 85%;
+  width: 70%;
   height: 360px;
   margin:auto;
-
+  border-right:5px solid ${({ format }) => format==="standard" ? 'rgb(56, 81, 134)' : 'rgb(146, 67, 3)' };
 `;
 
 const PreviewInfoLabel = styled.div`
@@ -36,9 +36,9 @@ const StyledImage = styled(Image)`
   border-radius: 10px;
 `;
 
-const AuthorPreview = ({ title, image, slag }) => {
+const AuthorPreview = ({ title, image, slag,formatstyle }) => {
   return (
-    <PreviewWrapper to={`/authorArticle/${slag}`}>
+    <PreviewWrapper format={formatstyle} to={`/authorArticle/${slag}`}>
       <StyledImage fluid={image} />
       <PreviewInfoLabel>
         <h2>{title}</h2>

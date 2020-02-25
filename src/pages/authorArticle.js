@@ -21,7 +21,7 @@ const AuthorArticlePage = ({ data }) => {
         paragraph={allDatoCmsAuthorarticle.nodes[0].description}
       />
 
-      {nodes.map(({ name, id, slag, picture }) => {
+      {nodes.map(({ name, id, slag, picture,formatstyle }) => {
         return (
           <AuthorPreview
             key={slag}
@@ -30,6 +30,7 @@ const AuthorArticlePage = ({ data }) => {
             title={name}
             slag={slag}
             image={picture.fluid}
+            formatstyle={formatstyle}
           />
         );
       })}
@@ -48,6 +49,7 @@ export const query = graphql`
             ...GatsbyDatoCmsFluid_tracedSVG
           }
         }
+        formatstyle
       }
     }
     allDatoCmsAuthorarticle {

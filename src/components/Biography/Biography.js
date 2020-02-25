@@ -7,6 +7,16 @@ const BiographyDetailWrapper = styled.div`
   width: 90%;
   margin: 0 50px;
   top: 50px;
+  padding:20px;
+  
+  background-color: ${({ format }) => 
+    format==="standard" ? 
+        'rgba(56, 81, 134,0.2)' 
+        : 
+        (format==="small" ? 'rgba(146, 167, 30,0.2)'  : 'rgba(146, 67, 3,0.2)' )
+  };
+  
+
   h1 {
     margin: 0 0 20px;
   }
@@ -27,13 +37,13 @@ const StyledImage = styled(Image)`
   border-radius: 10px;
 `;
 
-const BiographyDetail = ({ id, name, subtitle, text, picture }) => {
+const BiographyDetail = ({ id, name, subtitle, text, picture, formatstyle }) => {
   return (
     <Fragment>
     
-      <BiographyDetailWrapper key={id}>
+      <BiographyDetailWrapper key={id} format={formatstyle}>
         <h2>{name}</h2>
-        {picture !== null && <StyledImage fluid={picture.fluid} />}
+        {picture !== null ? (<StyledImage fluid={picture.fluid} />) : null }
         <h4> {subtitle}</h4>
         <p>{text}</p>
       </BiographyDetailWrapper>

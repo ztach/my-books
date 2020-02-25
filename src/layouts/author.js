@@ -8,7 +8,7 @@ const ArticleLayoutWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  margin: 150px 0 0 50px;
+  margin: 150px 0 0 0px;
   text-align:justify;
   
 `;
@@ -18,6 +18,7 @@ export const query = graphql`
     datoCmsAuthor(id: { eq: $id }) {
       id
       name
+      formatstyle
       biograpy {
         ... on DatoCmsTitlecontent {
           id
@@ -37,8 +38,7 @@ export const query = graphql`
 `;
 
 const AuthorLayout = ({ data }) => {
-  const { datoCmsAuthor: { biograpy } } = data;
-
+  const { datoCmsAuthor: { biograpy,formatstyle } } = data;
   return (
     <ArticleLayoutWrapper>
       {biograpy.map((item) => {
@@ -51,6 +51,7 @@ const AuthorLayout = ({ data }) => {
             subtitle={subtitle}
             text={text}
             picture={picture}
+            formatstyle={formatstyle}
           />
         );
       })}
