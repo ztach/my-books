@@ -31,7 +31,7 @@ const PreviewInfoLabel = styled.div`
 `;
 
 const StyledImage = styled.img`
-  width: 61%;
+  width: 64.1%;
   height: 81%;
   border: none;
   border: .5px solid hsla(100, 0%, 0%, 90.5);
