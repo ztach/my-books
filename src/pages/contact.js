@@ -41,9 +41,8 @@ const ContactPage = ({ data: { datoCmsContactpage: { contact } } }) => (
 
 export const query = graphql`
   {
-    datoCmsContactpage(id: { eq: "DatoCmsContactpage-3217344-pl" }) {
+    datoCmsContactpage(ispagedey: { eq: true }) {
       contact
-      id
     }
   }
 `;
