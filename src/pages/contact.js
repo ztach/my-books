@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { graphql } from "gatsby";
+import React from "react"
+import styled from "styled-components"
+import { graphql } from "gatsby"
 
 const StyledWrapper = styled.div`
   padding: 150px 0 0 50px;
@@ -31,22 +31,36 @@ const StyledWrapper = styled.div`
   table tbody tr td:nth-child(2) {
     padding-left: 40px;
   }
-`;
+`
 
-const ContactPage = ({ data: { datoCmsContactpage: { contact } } }) => (
-  <StyledWrapper>
-    <div dangerouslySetInnerHTML={{ __html: contact }} />
-  </StyledWrapper>
-);
+const ContactPage = ({
+  data: {
+    allDatoCmsContactpage: { nodes },
+  },
+}) => {
+  return (
+    <StyledWrapper>
+      {nodes.map(item => (
+        <div
+          key={item.id}
+          dangerouslySetInnerHTML={{ __html: item.contact }}
+        />
+      ))}
+    </StyledWrapper>
+  )
+}
 
 export const query = graphql`
   {
-    datoCmsContactpage(ispagedey: { eq: true }) {
-      contact
+    allDatoCmsContactpage {
+      nodes {
+        id
+        contact
+      }
     }
   }
-`;
+`
 
-export default ContactPage;
+export default ContactPage
 //   DatoCmsContactpage-3217344-pl
 //  DatoCmsContactpage-3186131-pl

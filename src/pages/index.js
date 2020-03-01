@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
-import { graphql } from 'gatsby';
-import Image from 'gatsby-image';
-import styled from 'styled-components';
+import React, { Fragment } from "react"
+import { graphql } from "gatsby"
+import Image from "gatsby-image"
+import styled from "styled-components"
 
 const StyledWrapper = styled.div`
-  width: 45%;
+  width: 50%;
   height: 100vh;
 
   text-align: right;
@@ -21,22 +21,18 @@ const StyledWrapper = styled.div`
     margin: 20px 0 40px;
     width: 50%;
   }
-`;
+`
 
 const ImageWrapper = styled(Image)`
   position: absolute !important;
   top: 0;
   right: 0;
-  width: 50%;
+  width: 42%;
   height: 100vh;
   object-fit: cover;
   background-color: ${({ theme }) => theme.index};
   z-index: 100;
-  ::hover {
-    cursor: pointer;
-    transform: translateX(-100%);
-  }
-`;
+`
 
 const IndexPage = ({
   data: {
@@ -60,8 +56,8 @@ const IndexPage = ({
       </StyledWrapper>
       <ImageWrapper fluid={picturebiblioteka.fluid} />
     </Fragment>
-  );
-};
+  )
+}
 
 export const query = graphql`
   {
@@ -78,6 +74,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default IndexPage;
+export default IndexPage

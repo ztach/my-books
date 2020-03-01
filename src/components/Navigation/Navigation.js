@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'gatsby';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react"
+import styled from "styled-components"
+import { Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 const NavigationWrapper = styled.nav`
   position: absolute;
@@ -10,24 +10,23 @@ const NavigationWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   a {
     text-decoration: none;
     color: inherit;
   }
-`;
+`
 
 const Logo = styled.span`
   font-weight: 700;
-  margin-right: 30px;
-`;
+`
 
 const NavigationList = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
   list-style: none;
-`;
+`
 
 const NavigationListItem = styled.li`
   font-weight: 600;
@@ -37,7 +36,7 @@ const NavigationListItem = styled.li`
   ::hover {
     cursor: pointer;
   }
-`;
+`
 
 const Navigation = () => {
   const data = useStaticQuery(graphql`
@@ -52,7 +51,7 @@ const Navigation = () => {
         }
       }
     }
-  `);
+  `)
 
   return (
     <NavigationWrapper>
@@ -66,20 +65,30 @@ const Navigation = () => {
       </Logo>
       <NavigationList>
         <NavigationListItem>
-          <Link to="/booksArticle">BooksArticle</Link>
+          <Link to="/booksArticle">Lista książek</Link>
         </NavigationListItem>
         <NavigationListItem>
-          <Link to="/authorArticle">AuthorArticle</Link>
+          <Link to="/authorArticle">Lista autorów</Link>
         </NavigationListItem>
+
         <NavigationListItem>
-          <Link to="/contact">Pisarz dnia</Link>
+          <Link to="/authorDay">Pisarz dnia</Link>
         </NavigationListItem>
+
         <NavigationListItem>
-          <Link to="/about">About</Link>
+          <Link to="/contact">Kontakt</Link>
+        </NavigationListItem>
+
+        <NavigationListItem>
+          <Link to="/faq">Komentarze</Link>
+        </NavigationListItem>
+
+        <NavigationListItem>
+          <Link to="/about">O mnie</Link>
         </NavigationListItem>
       </NavigationList>
     </NavigationWrapper>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation
