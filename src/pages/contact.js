@@ -1,5 +1,4 @@
 import React from "react"
-import withContext from "../hoc/withContext"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 
@@ -7,13 +6,6 @@ const StyledWrapper = styled.div`
   padding: 150px 0 0 50px;
   margin-right: 50px;
   text-align: justify;
-
-  .active {
-    padding: 5px;
-    background-color: ${({ activecolor, theme }) =>
-      activecolor ? theme[activecolor] : "blue"};
-    color: white;
-  }
 
   img {
     width: 150px;
@@ -42,13 +34,12 @@ const StyledWrapper = styled.div`
 `
 
 const ContactPage = ({
-  pageContext,
   data: {
     allDatoCmsContactpage: { nodes },
   },
 }) => {
   return (
-    <StyledWrapper activecolor={pageContext}>
+    <StyledWrapper>
       {nodes.map(item => (
         <div
           key={item.id}
@@ -70,4 +61,4 @@ export const query = graphql`
   }
 `
 
-export default withContext(ContactPage)
+export default ContactPage

@@ -1,5 +1,4 @@
 import React from "react"
-import withContext from "../../hoc/withContext"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
@@ -45,7 +44,7 @@ const NavigationListItem = styled.li`
   }
 `
 
-const Navigation = ({ pageContext }) => {
+const Navigation = () => {
   const data = useStaticQuery(graphql`
     {
       datoCmsIndexpagetitle {
@@ -63,11 +62,7 @@ const Navigation = ({ pageContext }) => {
   return (
     <NavigationWrapper>
       <Logo>
-        <Link
-          to="/"
-          activeClassName="active"
-          activecolor={pageContext}
-        >
+        <Link to="/" activeClassName="active">
           <img
             src={data.datoCmsIndexpagetitle.logo.fixed.src}
             alt="moje logo"
@@ -76,60 +71,36 @@ const Navigation = ({ pageContext }) => {
       </Logo>
       <NavigationList>
         <NavigationListItem>
-          <Link
-            to="/booksArticle"
-            activeClassName="active"
-            activecolor={pageContext}
-          >
+          <Link to="/booksArticle" activeClassName="active">
             Lista książek
           </Link>
         </NavigationListItem>
         <NavigationListItem>
-          <Link
-            to="/authorArticle"
-            activeClassName="active"
-            activecolor={pageContext}
-          >
+          <Link to="/authorArticle" activeClassName="active">
             Lista autorów
           </Link>
         </NavigationListItem>
 
         <NavigationListItem>
-          <Link
-            to="/authorDay"
-            activeClassName="active"
-            activecolor={pageContext}
-          >
+          <Link to="/authorDay" activeClassName="active">
             Pisarz dnia
           </Link>
         </NavigationListItem>
 
         <NavigationListItem>
-          <Link
-            to="/contact"
-            activeClassName="active"
-            activecolor={pageContext}
-          >
+          <Link to="/contact" activeClassName="active">
             Kontakt
           </Link>
         </NavigationListItem>
 
         <NavigationListItem>
-          <Link
-            to="/faq"
-            activeClassName="active"
-            activecolor={pageContext}
-          >
+          <Link to="/faq" activeClassName="active">
             Komentarze
           </Link>
         </NavigationListItem>
 
         <NavigationListItem>
-          <Link
-            to="/about"
-            activeClassName="active"
-            activecolor={pageContext}
-          >
+          <Link to="/about" activeClassName="active">
             O mnie
           </Link>
         </NavigationListItem>
@@ -138,4 +109,4 @@ const Navigation = ({ pageContext }) => {
   )
 }
 
-export default withContext(Navigation)
+export default Navigation

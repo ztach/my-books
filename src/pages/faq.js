@@ -1,26 +1,35 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-import { graphql } from "gatsby"
+import React from "react";
+import styled from "styled-components";
+import { graphql } from "gatsby";
+
+import FaqDetails from "../components/FAQ/FaqDetails";
 
 const StyledWrapper = styled.div`
   padding: 150px 0 0 50px;
   margin-right: 50px;
   text-align: justify;
+  width: 50%;
 
-  img {
-    width: 150px;
-    box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.945);
-    border-radius: 15px;
+  h1 {
+    font-size: 25px;
+    color: red;
+    margin: 50px 0 30px 0;
   }
 
   h2 {
     font-size: 20px;
     color: red;
-    margin: 50px 0 30px 0;
+    padding-right: 130px;
+
+    img {
+      width: 50px;
+      box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.15);
+      border-radius: 2px;
+    }
   }
 
   h3 {
-    margin: 50px 250px;
+    font-size: 18px;
   }
 
   h2::first-letter {
@@ -31,38 +40,52 @@ const StyledWrapper = styled.div`
   table tbody tr td:nth-child(2) {
     padding-left: 40px;
   }
-`
+`;
+
 const FaqPage = ({
+  location: { pathname },
   data: {
     allDatoCmsFaq: { nodes },
   },
 }) => {
   return (
     <StyledWrapper>
-      {nodes.map(({ title, subtitle, text, slug }) => {
+      <h1>FAQ, Komentarze, Pytania i Wszystko Do Kupy</h1>
+      {nodes.map(({ id, slug, title, subtitle, picture }) => {
         return (
-          <div key={slug}>
-            <h1>{title}</h1>
-            <h3>{subtitle}</h3>
-            <p>{text}</p>
-          </div>
-        )
+          <FaqDetails
+            key={id}
+            id={id}
+            title={title}
+            subtitle={subtitle}
+            picture={picture}
+            slug={slug}
+          />
+        );
       })}
     </StyledWrapper>
-  )
-}
+  );
+};
 
 export const query = graphql`
   {
     allDatoCmsFaq {
       nodes {
+        id
         title
         subtitle
         text
         slug
+        picture {
+          fixed(width: 100) {
+            tracedSVG
+            src
+            sizes
+          }
+        }
       }
     }
   }
-`
+`;
 
-export default FaqPage
+export default FaqPage;

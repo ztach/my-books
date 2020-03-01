@@ -1,16 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-
-import { graphql } from 'gatsby';
-import BiographyDetail from './../components/Biography/Biography';
+import React from "react";
+import styled from "styled-components";
+import { graphql } from "gatsby";
+import BiographyDetail from "./../components/Biography/Biography";
 
 const ArticleLayoutWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
   margin: 150px 0 0 0px;
-  text-align:justify;
-  
+  text-align: justify;
 `;
 
 export const query = graphql`
@@ -38,10 +36,12 @@ export const query = graphql`
 `;
 
 const AuthorLayout = ({ data }) => {
-  const { datoCmsAuthor: { biograpy,formatstyle } } = data;
+  const {
+    datoCmsAuthor: { biograpy, formatstyle },
+  } = data;
   return (
     <ArticleLayoutWrapper>
-      {biograpy.map((item) => {
+      {biograpy.map(item => {
         const { id, name, subtitle, text, picture } = item;
         return (
           <BiographyDetail
