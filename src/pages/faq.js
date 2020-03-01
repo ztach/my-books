@@ -32,8 +32,37 @@ const StyledWrapper = styled.div`
     padding-left: 40px;
   }
 `
-const FaqPage = () => {
-  return <StyledWrapper>faq FaqPage</StyledWrapper>
+const FaqPage = ({
+  data: {
+    allDatoCmsFaq: { nodes },
+  },
+}) => {
+  return (
+    <StyledWrapper>
+      {nodes.map(({ title, subtitle, text, slug }) => {
+        return (
+          <div key={slug}>
+            <h1>{title}</h1>
+            <h3>{subtitle}</h3>
+            <p>{text}</p>
+          </div>
+        )
+      })}
+    </StyledWrapper>
+  )
 }
+
+export const query = graphql`
+  {
+    allDatoCmsFaq {
+      nodes {
+        title
+        subtitle
+        text
+        slug
+      }
+    }
+  }
+`
 
 export default FaqPage

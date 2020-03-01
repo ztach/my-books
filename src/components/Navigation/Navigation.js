@@ -1,4 +1,5 @@
 import React from "react"
+import withContext from "../../hoc/withContext"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
@@ -36,9 +37,15 @@ const NavigationListItem = styled.li`
   ::hover {
     cursor: pointer;
   }
+
+  .active {
+    padding: 5px 15px;
+    background-color: rgb(48, 5, 146);
+    color: yellow;
+  }
 `
 
-const Navigation = () => {
+const Navigation = ({ pageContext }) => {
   const data = useStaticQuery(graphql`
     {
       datoCmsIndexpagetitle {
@@ -56,7 +63,11 @@ const Navigation = () => {
   return (
     <NavigationWrapper>
       <Logo>
-        <Link to="/">
+        <Link
+          to="/"
+          activeClassName="active"
+          activecolor={pageContext}
+        >
           <img
             src={data.datoCmsIndexpagetitle.logo.fixed.src}
             alt="moje logo"
@@ -65,30 +76,66 @@ const Navigation = () => {
       </Logo>
       <NavigationList>
         <NavigationListItem>
-          <Link to="/booksArticle">Lista książek</Link>
+          <Link
+            to="/booksArticle"
+            activeClassName="active"
+            activecolor={pageContext}
+          >
+            Lista książek
+          </Link>
         </NavigationListItem>
         <NavigationListItem>
-          <Link to="/authorArticle">Lista autorów</Link>
+          <Link
+            to="/authorArticle"
+            activeClassName="active"
+            activecolor={pageContext}
+          >
+            Lista autorów
+          </Link>
         </NavigationListItem>
 
         <NavigationListItem>
-          <Link to="/authorDay">Pisarz dnia</Link>
+          <Link
+            to="/authorDay"
+            activeClassName="active"
+            activecolor={pageContext}
+          >
+            Pisarz dnia
+          </Link>
         </NavigationListItem>
 
         <NavigationListItem>
-          <Link to="/contact">Kontakt</Link>
+          <Link
+            to="/contact"
+            activeClassName="active"
+            activecolor={pageContext}
+          >
+            Kontakt
+          </Link>
         </NavigationListItem>
 
         <NavigationListItem>
-          <Link to="/faq">Komentarze</Link>
+          <Link
+            to="/faq"
+            activeClassName="active"
+            activecolor={pageContext}
+          >
+            Komentarze
+          </Link>
         </NavigationListItem>
 
         <NavigationListItem>
-          <Link to="/about">O mnie</Link>
+          <Link
+            to="/about"
+            activeClassName="active"
+            activecolor={pageContext}
+          >
+            O mnie
+          </Link>
         </NavigationListItem>
       </NavigationList>
     </NavigationWrapper>
   )
 }
 
-export default Navigation
+export default withContext(Navigation)
