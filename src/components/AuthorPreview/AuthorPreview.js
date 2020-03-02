@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import Image from 'gatsby-image';
-import { Link } from 'gatsby';
+import React from "react";
+import styled from "styled-components";
+import Image from "gatsby-image";
+import { Link } from "gatsby";
 
 const PreviewWrapper = styled(Link)`
   display: black;
@@ -9,7 +9,7 @@ const PreviewWrapper = styled(Link)`
   width: 70%;
   height: 360px;
   margin:auto;
-  border-right:5px solid ${({ format }) => format==="standard" ? 'rgb(56, 81, 134)' : 'rgb(146, 67, 3)' };
+  border-right:5px solid ${({ format }) => (format === "standard" ? "rgb(56, 81, 134)" : "rgb(146, 67, 3)")};
 `;
 
 const PreviewInfoLabel = styled.div`
@@ -36,7 +36,7 @@ const StyledImage = styled(Image)`
   border-radius: 10px;
 `;
 
-const AuthorPreview = ({ title, image, slag,formatstyle }) => {
+const AuthorPreview = ({ title, image, slag, formatstyle }) => {
   return (
     <PreviewWrapper format={formatstyle} to={`/authorArticle/${slag}`}>
       <StyledImage fluid={image} />
