@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { graphql } from 'gatsby';
 import styled from "styled-components";
-import FaqDetails from "../components/FAQ/FaqDetails";
+import FaqDetails from "../components/Faq/FaqDetails";
 
 const StyledWrapper = styled.div`
   padding: 150px 0 0 50px;
