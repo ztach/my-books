@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogBooksTemplate = path.resolve(`src/layouts/books.js`)
   const blogAuthorTemplate = path.resolve(`src/layouts/author.js`)
-  const blogFaqTemplate = path.resolve(`src/layouts/faqs.js`)
+
   const result = await graphql(`
     query queryBooks {
       allDatoCmsBook {
@@ -25,13 +25,6 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           id
           slag
-        }
-      }
-      allDatoCmsFaq {
-        __typename
-        nodes {
-          id
-          slug
         }
       }
     }
@@ -65,17 +58,5 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   }
 
-  if (
-    result.data.allDatoCmsFaq.__typename === "DatoCmsFaqConnection"
-  ) {
-    result.data.allDatoCmsFaq.nodes.forEach(item => {
-      createPage({
-        path: `faq/${item.slug}`,
-        component: blogFaqTemplate,
-        context: {
-          id: item.id,
-        },
-      })
-    })
-  }
+
 }
