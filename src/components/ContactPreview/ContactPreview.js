@@ -1,53 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import { Formik } from "formik";
 import axios from "axios";
-
-const StyledWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 30px 0 0 50px;
-  margin-right: 50px;
-  text-align: justify;
-`;
-
-const StyledLabel = styled.label`
-  display: block;
-  width: 25%;
-  padding: 10px;
-  font-size: 20px;
-  font-weight: 500;
-  margin: 15px 0;
-  border: 1px solid black;
-`;
-
-const StyledInput = styled.input`
-  display: block;
-  width: 50%;
-  padding: 10px;
-  font-size: 20px;
-  margin: 15px 0;
-  border: 1px solid black;
-`;
-
-const StyledArea = styled.textarea`
-  display: block;
-  height: 100px;
-  width: 50%;
-  padding: 10px;
-  border: 1px solid black;
-  font-size: 20px;
-`;
-
-const StyledButton = styled.button`
-  display: block;
-  margin: 30px;
-  width: 150px;
-  padding: 15px;
-  background-color: blanchedalmond;
-  font-size: 25px;
-  font-weight: 700;
-`;
+import {StyledWrapper,StyledLabel,StyledInput,StyledArea,StyledButton} from './ContactPreviewStyle'
 
 const ContactPreview = () => {
   return (
@@ -69,10 +23,19 @@ const ContactPreview = () => {
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+          axios
+            .post(
+              'https://us-central1-mybook-email.cloudfunctions.net/sendEmail',
+              values
+            )
+            .then(res => {
+              console.log(res);
+              setSubmitting(false);
+            })
+            .catch(err => {
+              console.log(err);
+              setSubmitting(false);
+            });
         }}
       >
         {({
