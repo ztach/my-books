@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import AboutDocuments from '../components/About/AboutDocuments'
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
@@ -38,6 +39,8 @@ const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
     <StyledWrapper>
 
       <div dangerouslySetInnerHTML={{ __html: mybody }} />
+
+      <AboutDocuments />
     </StyledWrapper>
   );
 };
