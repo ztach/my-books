@@ -1,27 +1,20 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-//import { Link } from 'gatsby';
 import { graphql } from 'gatsby';
 
 const BookWrapper = styled.div`
   width: 50%;
-  height: 70vh;
   margin: 150px 0 0 50px;
-  h1 {
-    font-size: ${({ theme }) => theme.fontSize.xxxl};
+ ul, li,  p {
+     text-align: justify;
+     line-height:24px;
   }
-  h3 {
-    font-size: ${({ theme }) => theme.fontSize.xxl};
-  }
-
-  p {
-    font-size: ${({ theme }) => theme.fontSize.lx};
-    text-align: justify;
-  }
+  
 `;
 
 const BookDetails = styled.div`
-  margin: auto 0 0 30px;
+  margin: 10px;
+  padding-top:30px;
 
   display: flex;
   flex-direction: column;
@@ -46,12 +39,20 @@ const BookDetails = styled.div`
   }
 `;
 
-const StyledImage = styled.img`
+const StyledImageText = styled.div`
   position: absolute !important;
   top: 25%;
   right: 5%;
   width: 21%;
-  height: 51%;
+  height: 65%;
+  display:flex;
+  flex-direction:column
+`;
+
+const StyledImage = styled.img`
+  
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   background-color: ${({ theme }) => theme.index};
   background: url(${({ cover }) => cover}) no-repeat;
@@ -91,8 +92,12 @@ const BooksLayout = ({ data }) => {
       <BookWrapper>
         <h1>{title}</h1>
         <h3>{author}</h3>
-        <p>{description}</p>
+        <div dangerouslySetInnerHTML={{ __html: description }} />
+        
       </BookWrapper>
+
+      <StyledImageText>
+      <StyledImage cover={okladka} />
       <BookDetails>
         <ul>
           <li>
@@ -104,10 +109,11 @@ const BooksLayout = ({ data }) => {
           <li>
             <p>stron:</p> <span>{pages}</span>
           </li>
-        </ul>
+          </ul>
+        
       </BookDetails>
+    </StyledImageText>
 
-      <StyledImage cover={okladka} />
     </Fragment>
   );
 };

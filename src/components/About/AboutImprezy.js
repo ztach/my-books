@@ -35,44 +35,41 @@ const StyledWrapper = styled.div`
 
 const AboutImprezy = () => {
 
-  const data = useStaticQuery(graphql`
+const data = useStaticQuery(graphql`
 {
   allDatoCmsDousunieci(filter: {slug: {eq: "imprezy"}}) {
-    nodes {
-      title
-      slug
-      content {
-        contentdocument
-        contentlink
-        contentdata
+    edges {
+      node {
+        title
+        slug
+        content {
+          contentdata
+          contentlink
+          contentdocument
+        }
       }
     }
   }
 }
 `);
 
+  const { allDatoCmsDousunieci: { edges } } = data;
+  const { node } = edges[0];
+  const { title, content } = node;
 
-  const { allDatoCmsDousunieci: { nodes } } = data;
-  const { title, content } = nodes[0];
-
-
+  
   return (
     <StyledWrapper>
-      <h2>{title}</h2>
+   <h2>{title}</h2>
       <ul>
-
         {content.map(({ contentdocument, contentlink, contentdata }) =>
           <li key={contentdocument}>
-            {contentdata} - <a href={contentlink} >{contentdocument}
-
-            </a>
-
+            {contentdata} - <div dangerouslySetInnerHTML={{ __html: contentlink }} />{contentdocument}
           </li>
         )
         }
 
-      </ul>
-    </StyledWrapper>
+      </ul>    </StyledWrapper>
   )
 }
 

@@ -5,6 +5,7 @@ const StyledWrapper = styled.div`
   text-align: justify;
   padding: 30px;
   overflow: auto;
+  line-height:30px;
   
  h2 {
     font-size: 20px;

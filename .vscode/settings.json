@@ -1,0 +1,25 @@
+{
+    "rest.api": {
+        "autoStart": true,
+        "openInBrowser": true,
+        
+        "guest": {
+            "isActive": false
+        },
+
+        "users": [
+            {
+                "name": "mkloubert",
+                "password": "P@sswort123!"
+            },
+            {
+                "name": "jlpicard",
+                "password": "NCC-1701-D"
+            },
+            {
+                "name": "staszek",
+                "password": "dziadek"
+            }
+        ]
+    }
+}
