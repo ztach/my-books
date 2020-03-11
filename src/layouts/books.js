@@ -1,20 +1,21 @@
-import React, { Fragment } from 'react';
-import styled from 'styled-components';
-import { graphql } from 'gatsby';
+import React, { Fragment } from "react";
+import styled from "styled-components";
+import { graphql } from "gatsby";
 
 const BookWrapper = styled.div`
   width: 50%;
   margin: 150px 0 0 50px;
- ul, li,  p {
-     text-align: justify;
-     line-height:24px;
+  ul,
+  li,
+  p {
+    text-align: justify;
+    line-height: 24px;
   }
-  
 `;
 
 const BookDetails = styled.div`
   margin: 10px;
-  padding-top:30px;
+  padding-top: 30px;
 
   display: flex;
   flex-direction: column;
@@ -40,22 +41,20 @@ const BookDetails = styled.div`
 `;
 
 const StyledImageText = styled.div`
-  position: absolute !important;
-  top: 25%;
+  position: absolute;
+  top: 10%;
   right: 5%;
-  width: 21%;
-  height: 65%;
-  display:flex;
-  flex-direction:column
+  display: flex;
+  flex-direction: column;
 `;
 
 const StyledImage = styled.img`
-  
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background-color: ${({ theme }) => theme.index};
-  background: url(${({ cover }) => cover}) no-repeat;
+  width: 25vw;
+  height: 610px;
+  background-image: url(${({ cover }) => cover});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 `;
 
 export const query = graphql`
@@ -75,17 +74,7 @@ export const query = graphql`
 `;
 
 const BooksLayout = ({ data }) => {
-  const {
-    datoCmsBook: {
-      author,
-      title,
-      description,
-      kategoria,
-      ocena,
-      okladka,
-      pages,
-    },
-  } = data;
+  const { datoCmsBook: { author, title, description, kategoria, ocena, okladka, pages } } = data;
 
   return (
     <Fragment>
@@ -93,27 +82,24 @@ const BooksLayout = ({ data }) => {
         <h1>{title}</h1>
         <h3>{author}</h3>
         <div dangerouslySetInnerHTML={{ __html: description }} />
-        
       </BookWrapper>
 
       <StyledImageText>
-      <StyledImage cover={okladka} />
-      <BookDetails>
-        <ul>
-          <li>
-            <p>kategoria:</p> <span>{kategoria}</span>
-          </li>
-          <li>
-            <p>ocena:</p> <span>{ocena}</span>
-          </li>
-          <li>
-            <p>stron:</p> <span>{pages}</span>
-          </li>
+        <StyledImage cover={okladka} />
+        <BookDetails>
+          <ul>
+            <li>
+              <p>kategoria:</p> <span>{kategoria}</span>
+            </li>
+            <li>
+              <p>ocena:</p> <span>{ocena}</span>
+            </li>
+            <li>
+              <p>stron:</p> <span>{pages}</span>
+            </li>
           </ul>
-        
-      </BookDetails>
-    </StyledImageText>
-
+        </BookDetails>
+      </StyledImageText>
     </Fragment>
   );
 };

@@ -1,11 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-<<<<<<< HEAD
 import AboutDocuments from '../components/About/AboutDocuments';
 
-=======
-import AboutDocuments from '../components/About/AboutDocuments'
->>>>>>> master
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
@@ -96,12 +92,6 @@ const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
 
       
 
-<<<<<<< HEAD
-=======
-      <div dangerouslySetInnerHTML={{ __html: mybody }} />
-
-      <AboutDocuments />
->>>>>>> master
     </StyledWrapper>
   );
 };
