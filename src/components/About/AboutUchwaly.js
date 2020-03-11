@@ -35,6 +35,7 @@ const StyledUchwalyWrapper = styled.div`
 
 const AboutUchwaly = () => {
 
+<<<<<<< HEAD
 const data = useStaticQuery(graphql`
  {
   allDatoCmsDousunieci(filter: {slug: {eq: "uchwaly"}}) {
@@ -68,6 +69,37 @@ const data = useStaticQuery(graphql`
         {content.map(({ contentdocument, contentlink, contentdata }) =>
           <li key={contentdocument}>
             {contentdata} - <div dangerouslySetInnerHTML={{ __html: contentlink }} />{contentdocument}
+=======
+  const data = useStaticQuery(graphql`
+{
+  allDatoCmsDousunieci(filter: {slug: {eq: "uchwaly"}}) {
+    nodes {
+      title
+      slug
+      content {
+        contentdocument
+        contentlink
+        contentdata
+      }
+    }
+  }
+}
+`);
+
+
+  const { allDatoCmsDousunieci: { nodes } } = data;
+  const { title, content } = nodes[0];
+
+
+  return (
+    <StyledUchwalyWrapper>
+      <h2>{title}</h2>
+      <ul>
+        {content.map(({ contentdocument, contentlink, contentdata }) =>
+          <li key={contentdocument}>
+            {contentdata} - <a href={contentlink} >{contentdocument}
+            </a>
+>>>>>>> master
           </li>
         )
         }
@@ -80,6 +112,9 @@ const data = useStaticQuery(graphql`
 
 
 export default AboutUchwaly;
+<<<<<<< HEAD
 /**
  *
  */
+=======
+>>>>>>> master
