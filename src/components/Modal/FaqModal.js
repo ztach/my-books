@@ -3,9 +3,18 @@ import styled from "styled-components";
 
 const StyledWrapper = styled.div`
   text-align: justify;
-  padding: 30px;
+  padding: 50px 30px;
   overflow: auto;
-  
+  line-height:40px;
+  text-align:justify;
+  font-size:20px;
+
+  div p {
+    text-align:justify;
+    font-size:20px;
+    line-height:40px;
+  }
+
  h2 {
     font-size: 20px;
     color: red;

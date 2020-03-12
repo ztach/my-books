@@ -8,12 +8,12 @@ const ModalWrapper = styled.div`
   z-index: 999;
   position: fixed;
   display: flex;
-
+  
   flex-direction: column;
   right: 0;
   top: 0;
   height: 100vh;
-  width: 91vw;
+  width: 85vw;
   background-color: white;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
   transform: translate(${({ isVisible }) => (isVisible ? "0" : "100%")});
@@ -21,8 +21,13 @@ const ModalWrapper = styled.div`
 `;
 
 const StyledButton = styled.button`
-  width: 30px;
-  background-color: green;
+  position:absolute;
+  top: 0;
+  left: 0;
+  font-weight:600;
+  padding: 10px 20px;
+  background-color: rgb(7, 68, 148);
+  color:white;
 `;
 
 const Modal = ({ openModal, setOpenModal, getId }) => {
@@ -32,7 +37,7 @@ const Modal = ({ openModal, setOpenModal, getId }) => {
       <FaqModal 
           getId={getId}
       />
-      <StyledButton onClick={()=>setOpenModal(false)}>x</StyledButton>
+      <StyledButton onClick={()=>setOpenModal(false)}>CLOSE</StyledButton>
     </ModalWrapper>
   );
 };

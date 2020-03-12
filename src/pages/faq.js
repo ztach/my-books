@@ -23,7 +23,7 @@ const FaqPage = ( {data: { allDatoCmsFaq: { nodes } } }) => {
 
   const setData = (x) => {
     setGetId(x)
-    setOpenModal(!openModal)
+    setOpenModal(true)
   }
 
     return (

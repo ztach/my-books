@@ -1,27 +1,21 @@
-import React, { Fragment } from 'react';
-import styled from 'styled-components';
-//import { Link } from 'gatsby';
-import { graphql } from 'gatsby';
+import React, { Fragment } from "react";
+import styled from "styled-components";
+import { graphql } from "gatsby";
 
 const BookWrapper = styled.div`
   width: 50%;
-  height: 70vh;
   margin: 150px 0 0 50px;
-  h1 {
-    font-size: ${({ theme }) => theme.fontSize.xxxl};
-  }
-  h3 {
-    font-size: ${({ theme }) => theme.fontSize.xxl};
-  }
-
+  ul,
+  li,
   p {
-    font-size: ${({ theme }) => theme.fontSize.lx};
     text-align: justify;
+    line-height: 24px;
   }
 `;
 
 const BookDetails = styled.div`
-  margin: auto 0 0 30px;
+  margin: 10px;
+  padding-top: 30px;
 
   display: flex;
   flex-direction: column;
@@ -46,15 +40,21 @@ const BookDetails = styled.div`
   }
 `;
 
-const StyledImage = styled.img`
-  position: absolute !important;
-  top: 25%;
+const StyledImageText = styled.div`
+  position: absolute;
+  top: 10%;
   right: 5%;
-  width: 21%;
-  height: 51%;
-  object-fit: cover;
-  background-color: ${({ theme }) => theme.index};
-  background: url(${({ cover }) => cover}) no-repeat;
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledImage = styled.img`
+  width: 25vw;
+  height: 610px;
+  background-image: url(${({ cover }) => cover});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 `;
 
 export const query = graphql`
@@ -74,40 +74,32 @@ export const query = graphql`
 `;
 
 const BooksLayout = ({ data }) => {
-  const {
-    datoCmsBook: {
-      author,
-      title,
-      description,
-      kategoria,
-      ocena,
-      okladka,
-      pages,
-    },
-  } = data;
+  const { datoCmsBook: { author, title, description, kategoria, ocena, okladka, pages } } = data;
 
   return (
     <Fragment>
       <BookWrapper>
         <h1>{title}</h1>
         <h3>{author}</h3>
-        <p>{description}</p>
+        <div dangerouslySetInnerHTML={{ __html: description }} />
       </BookWrapper>
-      <BookDetails>
-        <ul>
-          <li>
-            <p>kategoria:</p> <span>{kategoria}</span>
-          </li>
-          <li>
-            <p>ocena:</p> <span>{ocena}</span>
-          </li>
-          <li>
-            <p>stron:</p> <span>{pages}</span>
-          </li>
-        </ul>
-      </BookDetails>
 
-      <StyledImage cover={okladka} />
+      <StyledImageText>
+        <StyledImage cover={okladka} />
+        <BookDetails>
+          <ul>
+            <li>
+              <p>kategoria:</p> <span>{kategoria}</span>
+            </li>
+            <li>
+              <p>ocena:</p> <span>{ocena}</span>
+            </li>
+            <li>
+              <p>stron:</p> <span>{pages}</span>
+            </li>
+          </ul>
+        </BookDetails>
+      </StyledImageText>
     </Fragment>
   );
 };

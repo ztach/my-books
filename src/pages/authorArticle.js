@@ -1,14 +1,14 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import AuthorPreview from './../components/AuthorPreview/AuthorPreview';
-import PageInfo from './../components/PageInfo/PageInfo';
-import styled from 'styled-components';
+import React from "react";
+import { graphql } from "gatsby";
+import AuthorPreview from "./../components/AuthorPreview/AuthorPreview";
+import PageInfo from "./../components/PageInfo/PageInfo";
+import styled from "styled-components";
 
 const StyledWrapper = styled.div`
   padding: 120px 0 0 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 87px 90px;
+  grid-gap: 20px 10px;
 `;
 
 const AuthorArticlePage = ({ data }) => {
@@ -21,7 +21,7 @@ const AuthorArticlePage = ({ data }) => {
         paragraph={allDatoCmsAuthorarticle.nodes[0].description}
       />
 
-      {nodes.map(({ name, id, slag, picture,formatstyle }) => {
+      {nodes.map(({ name, id, slag, picture, formatstyle }) => {
         return (
           <AuthorPreview
             key={slag}

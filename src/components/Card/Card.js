@@ -1,37 +1,63 @@
 import React from 'react';
-import withContext from '../../hoc/withContext';
 import styled, { css } from 'styled-components';
-import { Redirect } from 'react-router-dom';
-import Paragraph from '../Paragraph/Paragraph';
-import Heading from '../Heading/Heading';
 import Avatar from '../Avatar/Avatar';
 
 const CardWrapper = styled.div`
   display: block;
   margin: 10px;
   min-width: 300px;
-  max-width: 400px;
+  max-width: 300px;
+  background-color: hsla(180,100%,25%,.05);
 
   box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.5);
   border-radius: 10px;
-  overflow: hidden;
+
   position: relative;
-  display: grid;
-  grid-template-rows: 0.25fr 1fr;
+  display: flex;
+  flex-direction:column;
+:hover{
+  background-color: hsla(180,100%,25%,1.05);
+  color:white;
+}
 `;
 
-const StyledHeading = styled(Heading)`
-  margin: 5px 0 0;
-  font-size: ${({ theme }) => theme.fontSize.m};
+const StyledHeading = styled.div`
+  margin: 15px 0 10px;
+  font-size: 1.3rem;
+  font-weight:600;
 `;
+
+const StyledLink = styled.div`
+  margin: 5px 0 0;
+
+p{
+  font-size: 1rem;
+  font-weight:400;
+  color:black;
+  a {
+        text-decoration:none;
+        font-weight:600;
+  }
+
+  a:hover{
+    color:red;
+  }
+}
+
+`;
+
+const Paragraph = styled.p`
+  font-size: 1rem;
+  font-weight: 400;
+  margin:0;
+`;
+
 
 const InnerWrapper = styled.div`
-  padding: 17px 30px;
+  padding: 0;
+  margin:0:
   font-size: ${({ theme }) => theme.fontSize.xs};
-  font-weight:${({ theme }) => theme.bold}
-
-  background-color: ${({ activecolor, theme }) =>
-    activecolor ? theme[activecolor] : 'white'};
+  font-weight:${({ theme }) => theme.bold};
 
   :first-of-type {
     z-index: 9999;
@@ -46,49 +72,43 @@ const InnerWrapper = styled.div`
     `};
 `;
 
+
 class Card extends React.Component {
   state = {
     redirect: false,
   };
 
-  handleCardClick = () => {
-    this.setState({ redirect: true });
-  };
 
   render() {
     const {
+      data,
+      link,
+      contDoc,
       pageContext,
-      icon,
-      id,
-      reprezentant,
-      tel,
-      email,
-      opis,
+      image
     } = this.props;
-    const { redirect } = this.state;
 
-    if (redirect) {
-      return <Redirect to={`${pageContext}/details/${id}`} />;
-    }
+    const { fixed: {  src } } = image;
 
     return (
       <CardWrapper onClick={this.handleCardClick}>
         <InnerWrapper activecolor={pageContext}>
-          <StyledHeading>{reprezentant}</StyledHeading>
-          {pageContext !== 'zarzadcy' && (
-            <Avatar icon={icon} activecolor={pageContext} />
-          )}
+          <StyledHeading>{contDoc}</StyledHeading>
+          <Avatar icon={src} />
+          
         </InnerWrapper>
         <InnerWrapper flex>
-          <Paragraph>{opis}</Paragraph>
+          <Paragraph>{data}</Paragraph>
+          
+          <StyledLink dangerouslySetInnerHTML={{ __html: link }}>
+            
+          </StyledLink>
         </InnerWrapper>
         <InnerWrapper activecolor={pageContext}>
-          {tel && <div>tel.: {tel}</div>}
-          {email && <div>email: {email} </div>}
         </InnerWrapper>
       </CardWrapper>
     );
   }
 }
 
-export default withContext(Card);
+export default Card;
