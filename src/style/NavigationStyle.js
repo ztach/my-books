@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 export const NavigationWrapper = styled.nav`
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -12,18 +15,16 @@ export const NavigationWrapper = styled.nav`
     text-decoration: none;
     color: inherit;
   }
-`
+`;
 
-export const Logo = styled.span`
-  font-weight: 700;
-`
+export const Logo = styled.span`font-weight: 700;`;
 
 export const NavigationList = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
   list-style: none;
-`
+`;
 
 export const NavigationListItem = styled.li`
   font-weight: 600;
@@ -39,5 +40,4 @@ export const NavigationListItem = styled.li`
     background-color: rgb(48, 5, 146);
     color: yellow;
   }
-`
-
+`;
