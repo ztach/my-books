@@ -2,6 +2,7 @@ import React from 'react'
 import AboutDocumentList from './AboutDocumentList'
 import styled from 'styled-components';
 
+
 const StyledDocumentWrapper = styled.div`
   padding: 40px 0 50px 0;
   width: 100%;
@@ -13,15 +14,19 @@ const StyledDocumentWrapper = styled.div`
   }
 `;
 
-const AboutDocuments = () => (
-  <StyledDocumentWrapper>
+const AboutDocuments = () => {
+  
+        
+  return (
+    <StyledDocumentWrapper>
+      
     <h1>Dokumenty do pobrania</h1>
     
       <AboutDocumentList />
     
   </StyledDocumentWrapper>
 )
-
+}
 
 
 
