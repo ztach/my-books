@@ -10,6 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogBooksTemplate = path.resolve(`src/layouts/books.js`)
   const blogAuthorTemplate = path.resolve(`src/layouts/author.js`)
+  const component = path.resolve(`src/auth0/LoginCallback.js`)
 
   const result = await graphql(`
     query queryBooks {
@@ -59,4 +60,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
 
+
 }
+
+

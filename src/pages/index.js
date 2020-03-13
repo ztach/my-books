@@ -34,6 +34,11 @@ const ImageWrapper = styled(Image)`
   z-index: 100;
 `
 
+
+const Auth0Context = React.createContext();
+export { Auth0Context }
+
+
 const IndexPage = ({
   data: {
     datoCmsIndexpagetitle: {
