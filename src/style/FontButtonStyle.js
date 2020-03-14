@@ -5,7 +5,7 @@ export const StyledButton = styled.button`
   width: 50px;
   height: 50px;
   border: none;
-  background-color: rgb(7, 68, 148);
+  background-color: #222286;
   font-size: ${({ nr }) => (nr === 0 ? "20px" : "40px")};
   color: white;
   font-weight: 600;

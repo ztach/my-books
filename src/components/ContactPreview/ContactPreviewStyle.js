@@ -41,7 +41,11 @@ export const StyledButton = styled.button`
   margin: 30px;
   width: 150px;
   padding: 15px;
-  background-color: blanchedalmond;
+  background-color: #222286;
+  box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.5);
+  border-radius: 10px;
+
+  color: white;
   font-size: 25px;
   font-weight: 700;
 `;

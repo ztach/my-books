@@ -36,8 +36,11 @@ export const NavigationListItem = styled.li`
   }
 
   .active {
-    padding: 5px 15px;
-    background-color: rgb(48, 5, 146);
-    color: yellow;
+    box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.5);
+    border-radius: 5px;
+
+    padding: 10px 15px;
+    background-color: #222286;
+    color: white;
   }
 `;

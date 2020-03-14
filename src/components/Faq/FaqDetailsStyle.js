@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 export const StyledWrapper = styled.div`
   text-align: justify;
-  
-  
- h2 {
+
+  h2 {
     font-size: 20px;
     color: red;
     padding-right: 130px;
@@ -25,10 +24,10 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   border: none;
-  background-color:white;
+  background-color: white;
   height: 40px;
 
   :hover {
@@ -37,27 +36,25 @@ export const StyledButton = styled.button`
     text-decoration: none;
   }
 
-    img {
-      width: 50px;
-      
-      box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.15);
-      border-radius: 2px;
-    }
+  img {
+    width: 50px;
+
+    box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.15);
+    border-radius: 2px;
+  }
 `;
 
-
 export const StyledBlock = styled.div`
-  width:100%;
+  width: 100%;
   display: flex;
-  flex-grow:2;
-  justify-items:center;
+  flex-grow: 2;
+  justify-items: center;
 
- h2 {
-   width:100%;
+  h2 {
+    width: 100%;
     font-size: 20px;
-    color: blueviolet;
+    color: #222286;
     margin-left: 50px;
     padding: 0 10px 0 0;
   }
-
 `;

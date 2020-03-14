@@ -69,6 +69,6 @@ export const StyledButtonWrapper = styled.div`
 export const StyledButton = styled.button`
   font-weight: 600;
   padding: 10px 20px;
-  background-color: rgb(7, 68, 148);
+  background-color: #222286;
   color: white;
 `;
