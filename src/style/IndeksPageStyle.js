@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import Image from "gatsby-image";
 
-export const StyledWrapper = styled.div`
-  width: 50%;
+export const StyledPageText = styled.div`
+  width: 100%;
   height: 100vh;
 
   text-align: right;
@@ -10,24 +9,20 @@ export const StyledWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  font-weight: 700;
-  h1 {
-    font-size: ${({ theme }) => theme.fontSize.xxl};
-    margin: 0;
-  }
+
+  font-weight: ${({ theme }) => theme.bold};
+  color: ${({ theme }) => theme.secondaryTab[6]};
+
+  h1,
+  h2,
+  h3,
   p {
-    margin: 20px 0 40px;
-    width: 50%;
+    text-align: right;
+    padding: 0 0 0 50px;
   }
 `;
 
-export const ImageWrapper = styled(Image)`
-  position: absolute !important;
-  top: 0;
-  right: 0;
-  width: 42%;
+export const StyledWrapper = styled.div`
+  width: 55%;
   height: 100vh;
-  object-fit: cover;
-  background-color: ${({ theme }) => theme.index};
-  z-index: 100;
 `;

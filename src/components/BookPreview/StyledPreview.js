@@ -16,7 +16,7 @@ export const PreviewInfoLabelB = styled.div`
   left: -35px;
   min-width: 320px;
   min-height: 40px;
-  background-color: #292986;
+  background-color: ${({ theme }) => theme.secondaryTab[6]};
   color: white;
   padding: 5px 15px;
   text-align: center;
@@ -44,7 +44,7 @@ export const PreviewInfoLabelA = styled.div`
   display: block;
   max-width: 400px;
   min-width: 350px;
-  background-color: #292986;
+  background-color: ${({ theme }) => theme.secondaryTab[6]};
   color: white;
   padding: 5px 15px;
   text-align: center;

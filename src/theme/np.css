@@ -1,13 +1,12 @@
-main {
-    background-color: rgba(255, 213, 170, 0.082) color:hsl(​226.55°, ​ 33.33%, ​ 65.88%)
-}
+.ha {
+  color: #b2dae4;
+  color: #4d8896;
+  color: #307180;
+  color: #1c5d6d;
+  color: rgb(26, 26, 104);
+  color: hsb(240, 75%, 53.3%);
 
-h1 {
-    color #ffff11;
-    color: rgb(26, 26, 104);
-    color: hsb(240, 75%, 53.3%);
-
-    color: #292975;
-    color: hsl(324, 100%, 83.3%);
-    color: hsl(​320.81, ​ 93.94%, ​ 25.88%);
+  color: #292975;
+  color: hsl(324, 100%, 83.3%);
+  color: hsl(​320.81, ​ 93.94%, ​ 25.88%);
 }

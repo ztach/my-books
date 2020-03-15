@@ -1,14 +1,9 @@
 import React, { Fragment } from "react";
 import { graphql } from "gatsby";
-import {  GlobalStateContext } from '../context/GlobalContextProvider';
-import FontButton from '../components/FontButton/FontButton';
+import { GlobalStateContext } from "../context/GlobalContextProvider";
+import FontButton from "../components/FontButton/FontButton";
 
-import {
-  BookWrapper,
-  BookDetails,
-  StyledImageText,
-  StyledImage
-} from '../style/BooksPageStyle';
+import { BookWrapper, BookDetails, StyledImageText, StyledImage } from "../style/BooksPageStyle";
 
 export const query = graphql`
   query querySingleBook($id: String!) {
@@ -34,7 +29,7 @@ const BooksLayout = ({ data }) => {
   return (
     <Fragment>
       <FontButton />
-     
+
       <BookWrapper sFont={state.sFont}>
         <h1>{title}</h1>
         <h3>{author}</h3>

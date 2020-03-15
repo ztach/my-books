@@ -1,25 +1,17 @@
 import styled from "styled-components";
+import Button from "../components/Button/Button";
+import ButtonWrapper from "../components/Button/ButtonWrapper";
 
-export const StyledButton = styled.button`
+export const StyledButton = styled(Button)`
   right: ${({ size }) => `${size + 10}px`};
-  width: 50px;
+  width: 60px;
   height: 50px;
-  border: none;
-  background-color: #222286;
-  font-size: ${({ nr }) => (nr === 0 ? "20px" : "40px")};
-  color: white;
-  font-weight: 600;
+  font-size: ${({ nr, theme }) => (nr === 0 ? theme.fontSize.x : theme.fontSize.sx)};
+  z-index: 1000;
 `;
 
-export const StyledButtonWrapper = styled.div`
-  position: fixed;
-  right: 0;
-  top: 5px;
-  display: flex;
+export const StyledButtonWrapper = styled(ButtonWrapper)`
+  right: 35px;
+  top: 2px;
   width: 160px;
-  align-items: center;
-  justify-items: center;
-  justify-content: space-around;
-  align-items: stretch;
-  z-index: 10000;
 `;

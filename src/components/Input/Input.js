@@ -1,14 +1,14 @@
-import styled, { css } from 'styled-components';
-import magnifierIcon from '../../assets/icons/magnifier.svg';
+import styled, { css } from "styled-components";
+import magnifierIcon from "../../assets/icons/magnifier.svg";
 
 const Input = styled.input`
   display: block;
   position: relative;
   margin-top: 5px;
-  font-size: ${({ theme }) => theme.fontSize.s};
-  background-color: ${({ theme }) => theme.grey100};
+  font-size: ${({ theme }) => theme.fontSize.sx};
+  background-color: ${({ theme }) => theme.secondaryTab[1]};
   padding: 15px 30px;
-  color: ${({ theme }) => theme.secondaryTab[0]};
+  color: ${({ theme }) => theme.secondaryTab[7]};
   border: none;
   border-radius: 5px;
 
@@ -18,7 +18,7 @@ const Input = styled.input`
     text-overflow: ellipsis;
     transform: rotateZ(-1deg);
 
-    color: ${({ theme }) => theme.grey300};
+    color: ${({ theme }) => theme.secondaryTab[6]};
   }
 
   :focus::placeholder {
@@ -26,7 +26,7 @@ const Input = styled.input`
     z-index: 999;
     position: absolute;
     top: 20px;
-    transform: translateY(-30px);
+    transform: translateY(-40px);
     transition: transform 1s ease-in-out;
   }
 

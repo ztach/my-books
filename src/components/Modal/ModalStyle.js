@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import Button from "../Button/Button";
 
 export const StyledFaqModalWrapper = styled.div`
   text-align: justify;
-  padding: 50px 30px;
+  padding: 100px 30px;
   overflow: auto;
   text-align: justify;
 
@@ -21,7 +22,6 @@ export const StyledFaqModalWrapper = styled.div`
   h2 {
     font-size: ${({ sFont }) => `${sFont}px`};
     line-height: ${({ sFont }) => `${sFont + 10}px`};
-    color: red;
     padding-right: 130px;
   }
 
@@ -31,8 +31,9 @@ export const StyledFaqModalWrapper = styled.div`
   }
 
   h2::first-letter {
-    font-size: 50px;
-    font-weight: 700;
+    color: ${({ theme }) => theme.secondaryTab[5]};
+    font-size: ${({ theme }) => theme.fontSize.l};
+    font-weight: ${({ theme }) => theme.bold};
   }
 
   table tbody tr td:nth-child(2) {
@@ -62,13 +63,8 @@ export const StyledButtonWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 7%;
+  height: 6%;
   background-color: white;
 `;
 
-export const StyledButton = styled.button`
-  font-weight: 600;
-  padding: 10px 20px;
-  background-color: #222286;
-  color: white;
-`;
+export const StyledButton = styled(Button)``;

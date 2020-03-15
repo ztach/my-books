@@ -1,15 +1,14 @@
 import React from "react";
-
-import { PreviewWrapperA, PreviewInfoLabelA, StyledImage } from "../BookPreview/StyledPreview";
+import InfoLabel from "../Label/InfoLabel";
+import ImageAuthor from "../Images/ImageAuthor";
+import PreviewLink from "../Link/PreviewLink";
 
 const AuthorPreview = ({ title, image, slag, formatstyle }) => {
   return (
-    <PreviewWrapperA format={formatstyle} to={`/authorArticle/${slag}`}>
-      <StyledImage fluid={image} />
-      <PreviewInfoLabelA>
-        <h2>{title}</h2>
-      </PreviewInfoLabelA>
-    </PreviewWrapperA>
+    <PreviewLink format={formatstyle} adres={`/authorArticle/${slag}`}>
+      <ImageAuthor img={image} />
+      <InfoLabel>{title}</InfoLabel>
+    </PreviewLink>
   );
 };
 export default AuthorPreview;

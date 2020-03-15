@@ -1,13 +1,13 @@
 import React from "react";
-import { PreviewWrapperB, PreviewInfoLabelB, StyledImg } from "./StyledPreview";
+import PreviewLink from "../Link/PreviewLink";
+import InfoLabel from "../Label/InfoLabel";
+import StyledImg from "../Images/ImageBooks";
 
 const BookPreview = ({ title, image, slag }) => (
-  <PreviewWrapperB to={`/booksArticle/${slag}`}>
-    <StyledImg cover={image} />
-    <PreviewInfoLabelB>
-      <h2>{title}</h2>
-    </PreviewInfoLabelB>
-  </PreviewWrapperB>
+  <PreviewLink adres={`/booksArticle/${slag}`}>
+    <StyledImg img={image} />
+    <InfoLabel>{title}</InfoLabel>
+  </PreviewLink>
 );
 
 export default BookPreview;
