@@ -13,7 +13,7 @@ export const NavigationWrapper = styled.nav`
   font-family: "Montserrat";
   a {
     text-decoration: none;
-    color: inherit;
+    color: inherit!;
   }
 `;
 
@@ -28,18 +28,24 @@ export const NavigationList = styled.ul`
 
 export const NavigationListItem = styled.li`
   font-weight: 600;
-  font-size: 15px;
-  margin-left: 37px;
+  font-size: 14px;
+  margin-left: 40px;
+  padding: 10px 0px;
 
-  ::hover {
+  a:hover {
     cursor: pointer;
+    box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.5);
+    border-radius: 5px;
+    padding: 10px 0px;
+    background-color: #222286;
+    color: white;
   }
 
   .active {
     box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.5);
     border-radius: 5px;
 
-    padding: 10px 15px;
+    padding: 10px 0px;
     background-color: #222286;
     color: white;
   }
