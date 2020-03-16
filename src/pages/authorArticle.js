@@ -5,7 +5,7 @@ import PageInfo from "./../components/PageInfo/PageInfo";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
-  padding: 120px 0 0 50px;
+  padding: 160px 0 0 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px 10px;

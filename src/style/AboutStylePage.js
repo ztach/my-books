@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledButton = styled.button`
   position: absolute;
-  top: 100px;
+  top: 160px;
   right: 50px;
   width: 200px;
   padding: 20px 30px;
@@ -17,24 +17,25 @@ export const StyledWrapper = styled.div`
   display: grid;
   width: 100%;
 
+  padding-top: 60px;
+
   ${({ state }) =>
     state === "light"
       ? `background: linear-gradient(
-    to bottom,
-        #d0d8f5 0%,
-        #8B98C5 40%,
-        #5C6BA5 60%,
-        #3D4E8C 100%
-  )
-`
+          to bottom,
+              #d0d8f5 0%,
+              #8B98C5 40%,
+              #5C6BA5 60%,
+              #3D4E8C 100%
+        )`
       : `background: linear-gradient(
-    to top,
-        #d0d8f5 0%,
-        #8B98C5 40%,
-        #5C6BA5 60%,
-        #3D4E8C 100%
-  )
-`};
+          to top,
+              #d0d8f5 0%,
+              #8B98C5 40%,
+              #5C6BA5 60%,
+              #3D4E8C 100%
+        )`
+    };
 `;
 
 export const StyledPageDownWrapper = styled.div`

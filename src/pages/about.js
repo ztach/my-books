@@ -1,8 +1,29 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { GlobalDispatchContext, GlobalStateContext } from "../context/GlobalContextProvider";
+import {
+  GlobalDispatchContext,
+  GlobalStateContext
+} from "../context/GlobalContextProvider";
+
 import AboutDocuments from "../components/About/AboutDocuments";
-import { StyledWrapper, StyledPageDownWrapper, StyledPageWrapper, StyledButton } from "../style/AboutStylePage";
+import {
+  StyledWrapper,
+  StyledPageDownWrapper,
+  StyledPageWrapper,
+  StyledButton
+} from "../style/AboutStylePage";
+
+import Main from '../assets/Main.svg'
+import styled from 'styled-components';
+
+const MainWrapper = styled(Main)`
+  position:absolute;
+  top: -60px;
+  right: 10px;
+  z-index: 5000;
+  width: 100px;
+`;
+
 
 const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
   const dispatch = React.useContext(GlobalDispatchContext);
@@ -10,6 +31,7 @@ const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
 
   return (
     <StyledWrapper state={state.themeCol}>
+      <MainWrapper />
       <StyledButton
         onClick={() => {
           dispatch({ type: "TOGGLE_THEME" });

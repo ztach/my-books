@@ -11,7 +11,8 @@ export const TextArea = styled.textarea`
   height: 12%;
   border: none;
   text-align: right;
-  font-size: ${({ theme }) => theme.fontSize.sxx};
+  font-family: "Montserrat";
+  font-size: ${({ theme }) => theme.fontSize.sx};
   color: ${({ theme }) => theme.secondaryTab[6]};
   font-weight: ${({ theme }) => theme.bold};
   z-index: -5;

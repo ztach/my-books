@@ -11,13 +11,13 @@ export const NavigationWrapper = styled.nav`
   align-items: center;
   justify-content: flex-start;
   font-family: "Montserrat";
+  box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.25);
   a {
     text-decoration: none;
     color: inherit!;
   }
 `;
 
-export const Logo = styled.span`font-weight: 700;`;
 
 export const NavigationList = styled.ul`
   margin: 0;
@@ -27,26 +27,31 @@ export const NavigationList = styled.ul`
 `;
 
 export const NavigationListItem = styled.li`
-  font-weight: 600;
-  font-size: 14px;
-  margin-left: 40px;
-  padding: 10px 0px;
 
+a{
+  font-weight: ${({ theme }) => theme.bold};
+  font-size: ${({ theme }) => theme.fontSize.xxs};
+  margin-left: 40px;
+  box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.60);
+  border-radius: 5px;
+
+  padding: 10px 10px;
+}
   a:hover {
     cursor: pointer;
-    box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.5);
+    box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.45);
     border-radius: 5px;
-    padding: 10px 0px;
-    background-color: #222286;
-    color: white;
+
+    padding: 10px 10px;
+    background-color: ${({ theme }) => theme.secondaryTab[6]};
+    color: ${({ theme }) => theme.secondaryTab[0]};
   }
 
-  .active {
+  a.active {
     box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.5);
     border-radius: 5px;
-
-    padding: 10px 0px;
-    background-color: #222286;
-    color: white;
+    padding: 10px 10px;
+    background-color: ${({ theme }) => theme.secondaryTab[6]};
+    color: ${({ theme }) => theme.secondaryTab[0]};
   }
 `;

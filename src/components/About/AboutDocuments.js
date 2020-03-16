@@ -2,7 +2,6 @@ import React from 'react'
 import AboutDocumentList from './AboutDocumentList'
 import styled from 'styled-components';
 
-
 const StyledDocumentWrapper = styled.div`
   padding: 40px 0 50px 0;
   width: 100%;

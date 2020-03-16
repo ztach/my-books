@@ -32,6 +32,7 @@ export const StyledWrapper = styled.div`
     font-weight: ${({ theme }) => theme.bold};
     color: ${({ theme }) => theme.secondaryTab[0]};
     line-height: 30px;
+    padding: 30px 0;
     margin: 50px 0 30px 0;
   }
   h2::first-letter {
