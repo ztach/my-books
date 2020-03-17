@@ -1,20 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
-import {
-  GlobalDispatchContext,
-  GlobalStateContext
-} from "../context/GlobalContextProvider";
+import { GlobalDispatchContext, GlobalStateContext } from "../context/GlobalContextProvider";
 
 import AboutDocuments from "../components/About/AboutDocuments";
-import {
-  StyledWrapper,
-  StyledPageDownWrapper,
-  StyledPageWrapper,
-  StyledButton
-} from "../style/AboutStylePage";
+import { StyledWrapper, StyledPageDownWrapper, StyledPageWrapper, StyledButton } from "../style/AboutStylePage";
 
-import Main from '../assets/Main.svg'
-import styled from 'styled-components';
+import Main from "../assets/Main.svg";
+import styled from "styled-components";
+import ListColor from "../components/List/ListColor";
 
 const MainWrapper = styled(Main)`
   position:absolute;
@@ -24,21 +17,21 @@ const MainWrapper = styled(Main)`
   width: 100px;
 `;
 
-
 const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
   const dispatch = React.useContext(GlobalDispatchContext);
   const state = React.useContext(GlobalStateContext);
 
+  {
+    console.log(state.themeCol);
+  }
+
   return (
     <StyledWrapper state={state.themeCol}>
       <MainWrapper />
-      <StyledButton
-        onClick={() => {
-          dispatch({ type: "TOGGLE_THEME" });
-        }}
-      >
-        Toggle Theme
-      </StyledButton>
+
+      <ListColor>
+        <h1>Samochody</h1>
+      </ListColor>
 
       <StyledPageWrapper>
         <div dangerouslySetInnerHTML={{ __html: mybody }} />

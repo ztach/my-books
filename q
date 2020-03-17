@@ -1,0 +1,54 @@
+* [33m3340e44[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m koncze ref styli i zmiana logo
+* [33m107ee13[m refaktoring - ujednolicenie styli
+* [33ma4e0dfb[m poprawki w nawigacji
+* [33mff0c958[m animacja i poprawa kolorow
+* [33m298978e[m powiekszanie biograpi HOCem
+* [33m6a4d026[m dodaje globale do komentarzy
+* [33m54c7c9f[m[33m ([m[1;32mkontekst[m[33m)[m global context
+*   [33m9890bf7[m Merge branch 'documents'
+[32m|[m[33m\[m  
+[32m|[m * [33m1e4d8a2[m[33m ([m[1;32mdocuments[m[33m)[m poprawiam modala
+[32m|[m * [33md777116[m ukladam okladki ksiazek i autorow
+[32m|[m *   [33m5dd8573[m do kupy
+[32m|[m [34m|[m[35m\[m  
+[32m|[m * [35m|[m [33m7b09a67[m poprawiam books i o mnie
+[32m|[m * [35m|[m [33m30e8215[m gitignore
+[32m|[m * [35m|[m [33m65a82dd[m dodaje dokumentacje
+* [35m|[m [35m|[m [33m92bbf49[m page data
+[35m|[m [35m|[m[35m/[m  
+[35m|[m[35m/[m[35m|[m   
+* [35m|[m   [33m7a3bd7d[m udany pul
+[36m|[m[1;31m\[m [35m\[m  
+[36m|[m * [35m|[m [33mbf0c6e1[m formularz kontaktowy cz 3
+[36m|[m * [35m|[m [33m5d88408[m formularz kontaktowy cz 2
+[36m|[m * [35m|[m [33m49bcad2[m formularz kontaktowy cz 1
+[36m|[m * [35m|[m [33m6207e49[m cos sie psuje
+* [1;31m|[m [35m|[m [33md8b8bcb[m faq
+* [1;31m|[m [35m|[m [33m6610c83[m add documents
+[35m|[m [1;31m|[m[35m/[m  
+[35m|[m[35m/[m[1;31m|[m   
+* [1;31m|[m [33m1059996[m dodatki
+[1;31m|[m[1;31m/[m  
+* [33m9ef0f0e[m do deploja ech2
+* [33m85ac8d6[m do deploja ech
+* [33m79d2d50[m do deploja
+* [33m357bd10[m zrobilem faq modal
+* [33m1eaaaf2[m robie faq
+* [33md6cbe2f[m podswietlam aktywna strone
+* [33m41bf8db[m new pages contact, authorDay
+* [33mbac0303[m wybor wg isPageDay and S Lem
+* [33m3a40ac5[m 2-ga poprawa str booksarticle
+* [33m0256635[m poprawa str booksarticle
+* [33m1aa6be8[m add S Twardoch
+* [33m4e087e5[m add jaume cabre
+* [33m9ee4755[m cabre
+* [33mde755db[m poprawki deploja
+* [33mc630a2c[m wysylka do deploja2
+* [33m16ed082[m zabawa ze cmsem
+* [33m6f2234c[m dalsze kombinacje
+* [33m9a7d031[m do deploju
+* [33m8e07e91[m stronka o mnie
+* [33mbac8c2a[m stronka o mnie
+* [33m91548b6[m book article
+* [33m725e439[m lacze z cms
+* [33m4678270[m Initial commit from gatsby: (https://github.com/gatsbyjs/gatsby-starter-default.git)

@@ -17,6 +17,32 @@ function reducer(state, action) {
       };
     }
 
+    case "TOGGLE_BARDZO_JASNY": {
+      return {
+        ...state,
+        themeCol: 1
+      };
+    }
+
+    case "TOGGLE_JASNY": {
+      return {
+        ...state,
+        themeCol: 2
+      };
+    }
+    case "TOGGLE_CIEMNIEJSZY": {
+      return {
+        ...state,
+        themeCol: 3
+      };
+    }
+    case "TOGGLE_CIEMNY": {
+      return {
+        ...state,
+        themeCol: 4
+      };
+    }
+
     case "ADD_FONT": {
       return {
         ...state,

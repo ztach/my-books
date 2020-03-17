@@ -18,24 +18,7 @@ export const StyledWrapper = styled.div`
   width: 100%;
 
   padding-top: 60px;
-
-  ${({ state }) =>
-    state === "light"
-      ? `background: linear-gradient(
-          to bottom,
-              #d0d8f5 0%,
-              #8B98C5 40%,
-              #5C6BA5 60%,
-              #3D4E8C 100%
-        )`
-      : `background: linear-gradient(
-          to top,
-              #d0d8f5 0%,
-              #8B98C5 40%,
-              #5C6BA5 60%,
-              #3D4E8C 100%
-        )`
-    };
+  background-color: ${({ theme, state }) => theme.secondaryTab[state]};
 `;
 
 export const StyledPageDownWrapper = styled.div`
