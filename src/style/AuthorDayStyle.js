@@ -5,19 +5,19 @@ export const StyledWrapper = styled.div`
   margin-right: 50px;
   text-align: justify;
 
-  font-size: ${({ sFont }) => `${sFont}px`} inherit!;
-  line-height: ${({ sFont }) => `${sFont + 10}px`} inherit!;
+  font-size: ${({ sFont }) => `${sFont}px`};
+  line-height: ${({ sFont }) => `${sFont + 10}px`};
 
   div p {
     text-align: justify;
-    font-size: ${({ sFont }) => `${sFont}px`} inherit!;
-    line-height: ${({ sFont }) => `${sFont + 10}px`} inherit!;
+    font-size: ${({ sFont }) => `${sFont}px`};
+    line-height: ${({ sFont }) => `${sFont + 10}px`};
   }
 
   p {
-    text-align: justify inherit!;
-    font-size: ${({ sFont }) => `${sFont}px`} inherit!;
-    line-height: ${({ sFont }) => `${sFont + 10}px`} inherit!;
+    text-align: justify;
+    font-size: ${({ sFont }) => `${sFont}px`};
+    line-height: ${({ sFont }) => `${sFont + 10}px`};
   }
 
   img {
