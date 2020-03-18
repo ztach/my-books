@@ -32,8 +32,18 @@ export const StyledWrapper = styled.div`
     font-weight: ${({ theme }) => theme.bold};
     color: ${({ theme }) => theme.secondaryTab[0]};
     line-height: 30px;
-    padding: 30px 0;
+    padding: 20px 10px;
     margin: 50px 0 30px 0;
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: space-between safe;
+
+    img {
+      margin-left: auto;
+      width: 100px;
+    }
   }
   h2::first-letter {
     font-size: ${({ theme }) => theme.fontSize.lxx};
