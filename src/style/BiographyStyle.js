@@ -1,18 +1,36 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import Image from "gatsby-image";
 
-export const StyledButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: ${({size}) =>  `${size+10}px` }  ;
-  width: 40px;
-  border: none;
-  background-color: rgba(150, 84, 134,.4);
-  font-size: 30px;
-  color: white;
-  font-weight: 600;
+const pulse = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 `;
 
+const animation = ({ animationLength }) => css`${pulse} ${animationLength} linear infinite;`;
+
+const PropsBox = styled.div(
+  ({ format }) =>
+    format === "13235D"
+      ? {
+          "background-color": `'#' + ${format}`,
+          color: "black"
+        }
+      : {
+          "background-color": "red",
+          color: "green"
+        }
+);
+
+export const PulseButton = styled.button`
+  padding: 20px;
+  background-color: ${({ format }) => "#" + format};
+  animation: ${animation};
+  ${PropsBox};
+`;
 
 export const BiographyDetailWrapper = styled.div`
   position: relative;
@@ -20,26 +38,32 @@ export const BiographyDetailWrapper = styled.div`
   margin: 0 50px;
   top: 50px;
   padding: 20px;
-  font-size:${({sFont}) => `${sFont}px` };
+  font-size: ${({ sFont }) => `${sFont}px`};
 
   div p {
-    font-size:${({ sFont }) => `${sFont}px` };
-    line-height: ${({ sFont }) => `${sFont+10}px` };
-    
-    
+    font-size: ${({ sFont }) => `${sFont}px`};
+    line-height: ${({ sFont }) => `${sFont + 10}px`};
   }
 
   p {
-      font-size:${({ sFont }) => `${sFont}px` };
-      line-height: ${({ sFont }) => `${sFont+10}px` };
-    }
+    font-size: ${({ sFont }) => `${sFont}px`};
+    line-height: ${({ sFont }) => `${sFont + 10}px`};
+  }
 
-  background-color: ${({ format }) =>
-    format === "standard"
-      ? "rgba(56, 81, 134,0.2)"
-      : format === "small"
-      ? "rgba(146, 167, 30,0.2)"
-      : "rgba(146, 67, 3,0.2)"};
+  
+
+  background-color: ${({ format }) => "#" + format};
+  /* color: ${({ format, theme }) =>
+    format === "3D4E8C" || format === "13235D" || format === "5C6BA5" || format === "3D4E8C" || format === "273877"
+      ? theme.secondaryTab[0]
+      : theme.secondaryTab[7]}; */
+
+  ${({ format }) =>
+    (format === "3D4E8C" || format === "13235D" || format === "5C6BA5" || format === "3D4E8C" || format === "273877") &&
+    css`
+      color: white;
+    `};
+
 
   h1 {
     margin: 0 0 20px;

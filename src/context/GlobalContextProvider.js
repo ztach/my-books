@@ -4,39 +4,32 @@ export const GlobalStateContext = React.createContext();
 export const GlobalDispatchContext = React.createContext();
 
 const initialState = {
-  themeCol: "light",
+  themeCol: "1",
   sFont: 20
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case "TOGGLE_THEME": {
-      return {
-        ...state,
-        themeCol: state.themeCol === "light" ? "dark" : "light"
-      };
-    }
-
-    case "TOGGLE_BARDZO_JASNY": {
+    case "1": {
       return {
         ...state,
         themeCol: 1
       };
     }
 
-    case "TOGGLE_JASNY": {
+    case "2": {
       return {
         ...state,
         themeCol: 2
       };
     }
-    case "TOGGLE_CIEMNIEJSZY": {
+    case "3": {
       return {
         ...state,
         themeCol: 3
       };
     }
-    case "TOGGLE_CIEMNY": {
+    case "4": {
       return {
         ...state,
         themeCol: 4
@@ -57,8 +50,13 @@ function reducer(state, action) {
       };
     }
 
-    default:
-      throw new Error("Bad Action Type");
+    default: {
+      return {
+        ...state,
+        themeCol: 3,
+        sFont: 20
+      };
+    }
   }
 }
 

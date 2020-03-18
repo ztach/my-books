@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { GlobalDispatchContext, GlobalStateContext } from "../context/GlobalContextProvider";
+import { GlobalStateContext } from "../context/GlobalContextProvider";
 
 import AboutDocuments from "../components/About/AboutDocuments";
-import { StyledWrapper, StyledPageDownWrapper, StyledPageWrapper, StyledButton } from "../style/AboutStylePage";
+import { StyledWrapper, StyledPageDownWrapper, StyledPageWrapper } from "../style/AboutStylePage";
 
 import Main from "../assets/Main.svg";
 import styled from "styled-components";
@@ -18,7 +18,6 @@ const MainWrapper = styled(Main)`
 `;
 
 const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
-  const dispatch = React.useContext(GlobalDispatchContext);
   const state = React.useContext(GlobalStateContext);
 
   {
@@ -29,7 +28,7 @@ const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
     <StyledWrapper state={state.themeCol}>
       <MainWrapper />
 
-      <ListColor>
+      <ListColor state={state.themeCol}>
         <h1>Samochody</h1>
       </ListColor>
 

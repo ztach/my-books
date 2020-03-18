@@ -22,11 +22,12 @@ const StyedSelect = styled.select`
   background-color: ${({ theme }) => theme.secondaryTab[1]};
 `;
 
-const ListColor = ({ Children }) => {
-  const [toggle, setToggle] = useState("");
+const ListColor = ({ Children, state }) => {
+  const [toggle, setToggle] = useState(state);
   const dispatch = React.useContext(GlobalDispatchContext);
 
   const getData = e => {
+    dispatch({ type: toggle });
     const TOGGLE_TYPE = e.target.value;
     dispatch({ type: TOGGLE_TYPE });
     setToggle(TOGGLE_TYPE);
@@ -37,10 +38,10 @@ const ListColor = ({ Children }) => {
       {Children}
 
       <StyedSelect id="sel" onClick={e => getData(e)}>
-        <option value="TOGGLE_BARDZO_JASNY">Bardzo jasny</option>
-        <option value="TOGGLE_JASNY">Jasny</option>
-        <option value="TOGGLE_CIEMNIEJSZY">Ciemniejszy</option>
-        <option value="TOGGLE_CIEMNY">Ciemny</option>
+        <option value="1">Bardzo jasny</option>
+        <option value="2">Jasny</option>
+        <option value="3">Ciemniejszy</option>
+        <option value="4">Ciemny</option>
       </StyedSelect>
     </StyledWrapper>
   );
