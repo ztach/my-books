@@ -1,13 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { GlobalStateContext } from "../context/GlobalContextProvider";
-
 import AboutDocuments from "../components/About/AboutDocuments";
 import { StyledWrapper, StyledPageDownWrapper, StyledPageWrapper } from "../style/AboutStylePage";
-
 import Main from "../assets/Main.svg";
 import styled from "styled-components";
 import ListColor from "../components/List/ListColor";
+import RightNavigation from '../components/About/RightNavigation/RightNavigation'
+
 
 const MainWrapper = styled(Main)`
   position:absolute;
@@ -20,25 +20,25 @@ const MainWrapper = styled(Main)`
 const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
   const state = React.useContext(GlobalStateContext);
 
-  {
-    console.log(state.themeCol);
-  }
 
   return (
     <StyledWrapper state={state.themeCol}>
-      <MainWrapper />
 
       <ListColor state={state.themeCol}>
         <h1>Samochody</h1>
       </ListColor>
 
-      <StyledPageWrapper>
+      <RightNavigation state={state.themeCol} />
+
+      
+      <StyledPageWrapper id="str1">
         <div dangerouslySetInnerHTML={{ __html: mybody }} />
       </StyledPageWrapper>
 
       <AboutDocuments />
 
-      <StyledPageDownWrapper>
+      <StyledPageDownWrapper id="str3">
+        
         <h1>Tu jest dalej</h1>
 
         <p>
@@ -48,7 +48,7 @@ const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
         </p>
       </StyledPageDownWrapper>
 
-      <StyledPageDownWrapper>
+      <StyledPageDownWrapper id="str4">
         <h1>Tu jest dalej jeszcze</h1>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, nobis voluptatum et autem perferendis sint magni
@@ -57,7 +57,7 @@ const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
         </p>
       </StyledPageDownWrapper>
 
-      <StyledPageDownWrapper>
+      <StyledPageDownWrapper id="str5">
         <h1>Tu jest dalej i do jeszcze </h1>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, nobis voluptatum et autem perferendis sint magni

@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
-  position: absolute;
-  top: 160px;
+  z-index: 1000;
+  position:fixed;
+  top: 10px;
   right: 50px;
   width: 200px;
   padding: 20px 30px;
@@ -14,24 +15,26 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledWrapper = styled.div`
+  padding: 60px 0 0 0;
   display: grid;
   width: 100%;
-
-  padding-top: 60px;
-  background-color: ${({ theme, state }) => theme.secondaryTab[state]};
+  overflow:hidden;
+  
+  background-color: ${({ theme, state }) => theme.primaryTab[state]};
 `;
 
 export const StyledPageDownWrapper = styled.div`
-  width: 100%;
+  width: 90%;
   height: 100vh;
-  border-top: 1px solid black;
+  padding:30px 0 0 0;
+  
 `;
 
 export const StyledPageWrapper = styled.div`
   padding: 100px 0 0 50px;
   width: 80%;
   height: 100vh;
-  border-top: 1px solid black;
+  
 
   h2 {
     background-color: ${({ theme }) => theme.secondaryTab[3]};

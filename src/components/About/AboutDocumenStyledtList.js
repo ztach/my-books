@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const StyledUchwalyWrapper = styled.div`
   padding: 80px 0 0 25px;
-  width: 50%;
+  width: 40%;
   height:83vh;
   display:flex;
   flex-direction:column;
@@ -17,7 +17,6 @@ const StyledUchwalyWrapper = styled.div`
   .styleLinks {
     width: 60%;
     padding: 20px;
-    background-color: rgba(248, 214, 214, 0.459);
     color: red;
    
   }
@@ -35,10 +34,7 @@ const StyledHeading = styled.div`
   margin: 15px auto;
   font-size: 1.3rem;
   font-weight:600;
-  display: flex;
-  flex-basis:center;
-  align-content:center;
-  align-items:center;
+  width:100%;
 
   h2 {
     font-size: 1.4rem;
@@ -57,16 +53,26 @@ const StyledImg = styled.img`
 `;
 
 
+const StyledDocumentList = styled.div`
+  padding: 10px 0 0 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px 20px;
+
+`;
+
+
+
 const AboutDocumenStyledtList = ({ title,images,svgImage,data,}) => {
     
   return (
     <StyledUchwalyWrapper>
       <StyledHeading>
           <h2>{title}</h2>
-          <StyledAvatar icon={images} />
-      <StyledImg src={svgImage} />
+          <StyledAvatar icon={images} width="50px"  />
+      
       </StyledHeading>
-
+      <StyledDocumentList>
         {
         data.map(item =>
           <Card 
@@ -78,7 +84,8 @@ const AboutDocumenStyledtList = ({ title,images,svgImage,data,}) => {
           />
         )
         }
-       </StyledUchwalyWrapper>
+      </StyledDocumentList>  
+    </StyledUchwalyWrapper>
     )
 }
 

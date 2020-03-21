@@ -3,7 +3,7 @@ import { css } from "styled-components";
 export const theme = {
   maron: "hsl(0,100%,25%)",
 
-  primaryTab: ["#b2dae4", "#7EAFBB", "#4D8896", "#307180", "#1C5D6D", "#0A4755"],
+  primaryTab: ["#FFFFFF","#b2dae4", "#7EAFBB", "#4D8896", "#307180", "#1C5D6D", "#0A4755","#000000"],
 
   secondaryTab: [
     "#FFFFFF", //0
