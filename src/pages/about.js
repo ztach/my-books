@@ -3,34 +3,21 @@ import { graphql } from "gatsby";
 import { GlobalStateContext } from "../context/GlobalContextProvider";
 import AboutDocuments from "../components/About/AboutDocuments";
 import { StyledWrapper, StyledPageDownWrapper, StyledPageWrapper } from "../style/AboutStylePage";
-import Main from "../assets/Main.svg";
-import styled from "styled-components";
+
 import ListColor from "../components/List/ListColor";
-import RightNavigation from '../components/About/RightNavigation/RightNavigation'
-
-
-const MainWrapper = styled(Main)`
-  position:absolute;
-  top: -60px;
-  right: 10px;
-  z-index: 5000;
-  width: 100px;
-`;
+import RightNavigation from "../components/About/RightNavigation/RightNavigation";
 
 const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
   const state = React.useContext(GlobalStateContext);
 
-
   return (
     <StyledWrapper state={state.themeCol}>
-
       <ListColor state={state.themeCol}>
         <h1>Samochody</h1>
       </ListColor>
 
       <RightNavigation state={state.themeCol} />
 
-      
       <StyledPageWrapper id="str1">
         <div dangerouslySetInnerHTML={{ __html: mybody }} />
       </StyledPageWrapper>
@@ -38,7 +25,6 @@ const AboutPage = ({ data: { datoCmsAbout: { mybody } } }) => {
       <AboutDocuments />
 
       <StyledPageDownWrapper id="str3">
-        
         <h1>Tu jest dalej</h1>
 
         <p>

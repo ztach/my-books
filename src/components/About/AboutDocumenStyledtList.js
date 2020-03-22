@@ -1,7 +1,7 @@
-import React from 'react'
-import Card from '../Card/Card';
-import Avatar from '../Avatar/Avatar';
-import styled from 'styled-components';
+import React from "react";
+import Card from "../Card/Card";
+import Avatar from "../Avatar/Avatar";
+import styled from "styled-components";
 
 const StyledUchwalyWrapper = styled.div`
   padding: 80px 0 0 25px;
@@ -33,63 +33,41 @@ const StyledAvatar = styled(Avatar)`
 const StyledHeading = styled.div`
   margin: 15px auto;
   font-size: 1.3rem;
-  font-weight:600;
-  width:100%;
+  font-weight: 600;
+  width: 100%;
 
   h2 {
     font-size: 1.4rem;
   }
-  
 `;
-
-const StyledImg = styled.img`
-  width: 160px;
-  height: 90px;
-  position:relative;
-  right: 130px;
-  top: 0px;
-
-  background-color:transparent;
-`;
-
 
 const StyledDocumentList = styled.div`
   padding: 10px 0 0 50px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px 20px;
-
 `;
 
-
-
-const AboutDocumenStyledtList = ({ title,images,svgImage,data,}) => {
-    
+const AboutDocumenStyledtList = ({ title, images, svgImage, data }) => {
   return (
     <StyledUchwalyWrapper>
       <StyledHeading>
-          <h2>{title}</h2>
-          <StyledAvatar icon={images} width="50px"  />
-      
+        <h2>{title}</h2>
+        <StyledAvatar icon={images} width="50px" />
       </StyledHeading>
       <StyledDocumentList>
-        {
-        data.map(item =>
-          <Card 
+        {data.map(item => (
+          <Card
             key={item.contentdocument}
-            data={item.contentdata} 
+            data={item.contentdata}
             link={item.contentlink}
-            image={item.contentpicture || ''}
+            image={item.contentpicture || ""}
             contDoc={item.contentdocument}
           />
-        )
-        }
-      </StyledDocumentList>  
+        ))}
+      </StyledDocumentList>
     </StyledUchwalyWrapper>
-    )
-}
-
-
+  );
+};
 
 export default AboutDocumenStyledtList;
-
