@@ -14,8 +14,10 @@ const Button = styled.button`
   color: white;
   box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.5);
   border-radius: 15px;
-
-  :hover {
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
     box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.5);
     color: ${({ theme }) => theme.secondaryTab[6]};
     background-color: ${({ theme }) => theme.secondaryTab[0]};
