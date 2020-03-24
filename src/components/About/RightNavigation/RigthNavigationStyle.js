@@ -1,12 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import Button from "../../Button/Button";
 
-const morph = keyframes`
-  0% {font-size: 2rem; }
-  50% {font-size: 3rem; }
-  100% {font-size: 1rem; }
-`;
-
 const spinA = keyframes`
   0% { 
        transform: translateX(0% );
@@ -35,15 +29,6 @@ const spinB = keyframes`
   100% {
       transform: translateX(0% );      
       opacity: 1;
-      }
-`;
-
-const btnTrans = keyframes`
-  0% { 
-        transform: translateX(-50% );
-        }
-  100% {
-      transform: translateX(0% );      
       }
 `;
 
