@@ -9,7 +9,7 @@ const FaqDetails = ({ setOpenModal, getId, setData, openModal, id, text, title, 
     <StyledWrapper key={id}>
       <ContainerRow>
         <StyledButton onClick={() => setData({ id, title, subtitle, text })}>
-          <img src={picture.fixed.src} alt="logo ksiazki" />
+          <img src={picture.fixed.src} alt="okrąg z napisem bookso" />
         </StyledButton>
 
         <Header2>{title}</Header2>

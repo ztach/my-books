@@ -1,22 +1,15 @@
-import React from "react"
-import { Link } from "gatsby"
-import Logo from '../../components/Animations/Logo';
-import {
-  NavigationWrapper,
-  NavigationList,
-  NavigationListItem
-} from '../../style/NavigationStyle';
-
+import React from "react";
+import { Link } from "gatsby";
+import LbooksPicture from "../../components/Animations/LbooksPicture";
+import { NavigationWrapper, NavigationList, NavigationListItem } from "../../style/NavigationStyle";
 
 const Navigation = () => {
-
   return (
     <NavigationWrapper>
+      <Link to="/" activeClassName="active">
+        <LbooksPicture />
+      </Link>
 
-        <Link to="/" activeClassName="active">
-          <Logo />
-        </Link>
-      
       <NavigationList>
         <NavigationListItem>
           <Link to="/booksArticle" activeClassName="active">
@@ -52,11 +45,9 @@ const Navigation = () => {
             O mnie
           </Link>
         </NavigationListItem>
-
       </NavigationList>
-      
     </NavigationWrapper>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;
