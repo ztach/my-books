@@ -1,47 +1,38 @@
 import styled from "styled-components";
+import Label from "../Label/Label";
+import Imput from "../Input/Input";
+import Button from "../Button/Button";
 
 export const StyledWrapper = styled.div`
   display: flex;
+  width: 55%;
   flex-direction: column;
-  padding: 30px 0 0 50px;
+  padding: 30px;
   margin-right: 50px;
   text-align: justify;
 `;
 
-export const StyledLabel = styled.label`
-  display: block;
+export const StyledLabel = styled(Label)`
   width: 25%;
-  padding: 10px;
-  font-size: 20px;
-  font-weight: 500;
   margin: 15px 0;
-  border: 1px solid black;
+  padding-bottom: 0;
 `;
 
-export const StyledInput = styled.input`
-  display: block;
-  width: 50%;
-  padding: 10px;
-  font-size: 20px;
-  margin: 15px 0;
-  border: 1px solid black;
+export const StyledInput = styled(Imput)`
+  width: 60%;
 `;
 
 export const StyledArea = styled.textarea`
   display: block;
   height: 100px;
-  width: 50%;
+  width: 80%;
   padding: 10px;
-  border: 1px solid black;
-  font-size: 20px;
+  border: 1px solid ${({ theme }) => theme.secondaryTab[6]};
+  font-size: ${({ theme }) => theme.fontSize.sxx};
+  color: ${({ theme }) => theme.secondaryTab[7]};
 `;
 
-export const StyledButton = styled.button`
-  display: block;
-  margin: 30px;
-  width: 150px;
-  padding: 15px;
-  background-color: blanchedalmond;
-  font-size: 25px;
-  font-weight: 700;
+export const StyledButton = styled(Button)`
+  margin: 50px 0 0 0;
+  padding: 20px 40px;
 `;

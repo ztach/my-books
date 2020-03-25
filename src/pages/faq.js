@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { graphql } from 'gatsby';
+import { graphql } from "gatsby";
 import styled from "styled-components";
 import FaqDetails from "../components/Faq/FaqDetails";
 
@@ -10,43 +10,42 @@ const StyledWrapper = styled.div`
   width: 50%;
 
   h1 {
-    font-size: 25px;
-    color: red;
+    color: ${({ theme }) => theme.secondaryTab[6]};
+    font-size: ${({ theme }) => theme.fontSize.m};
+    font-weight: ${({ theme }) => theme.bold};
     margin: 50px 0 30px 0;
   }
-
 `;
 
-const FaqPage = ( {data: { allDatoCmsFaq: { nodes } } }) => {
+const FaqPage = ({ data: { allDatoCmsFaq: { nodes } } }) => {
   const [openModal, setOpenModal] = useState(false);
   const [getId, setGetId] = useState({});
 
-  const setData = (x) => {
-    setGetId(x)
-    setOpenModal(true)
-  }
+  const setData = x => {
+    setGetId(x);
+    setOpenModal(true);
+  };
 
-    return (
+  return (
     <StyledWrapper>
       <h1>FAQ, Komentarze, Pytania i Wszystko Do Kupy</h1>
 
-      {nodes.map(({ id, slug, title,text, subtitle, picture }) => 
-         <FaqDetails 
-          key={id} 
-          id={id} 
-          title={title} 
-          subtitle={subtitle} 
+      {nodes.map(({ id, slug, title, text, subtitle, picture }) => (
+        <FaqDetails
+          key={id}
+          id={id}
+          title={title}
+          subtitle={subtitle}
           text={text}
-          picture={picture} 
-          slug={slug} 
-          openModal={openModal} 
+          picture={picture}
+          slug={slug}
+          openModal={openModal}
           setData={setData}
           setOpenModal={setOpenModal}
           getId={getId}
-         />      
-      )}
+        />
+      ))}
     </StyledWrapper>
-
   );
 };
 

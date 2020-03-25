@@ -1,0 +1,55 @@
+.hamburger {
+  border: 0;
+  position: relative;
+}
+
+.hamburger:focus {
+  background-color: red;
+}
+
+.hamburger-letter {
+  width: 58px;
+  height: 36px;
+  border: none;
+}
+
+.hamburger-letter:focus {
+  background-color: yellow;
+}
+
+.down {
+  animation: kaboom 1s .1s ease alternate infinite;
+  fill: red;
+}
+
+.midd {
+  animation: goon 5s 5s ease alternate infinite;
+}
+
+.upp {
+  animation: kaboom 1s .4s ease alternate infinite;
+}
+
+@keyframes kaboom {
+  90% {
+    transform: scale(1.0);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes goon {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  40% {
+    transform: translateX(80%);
+    opacity: .2;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}

@@ -1,61 +1,9 @@
 import React, { Fragment } from "react";
-import styled from "styled-components";
 import { graphql } from "gatsby";
+import { GlobalStateContext } from "../context/GlobalContextProvider";
+import FontButton from "../components/FontButton/FontButton";
 
-const BookWrapper = styled.div`
-  width: 50%;
-  margin: 150px 0 0 50px;
-  ul,
-  li,
-  p {
-    text-align: justify;
-    line-height: 24px;
-  }
-`;
-
-const BookDetails = styled.div`
-  margin: 10px;
-  padding-top: 30px;
-
-  display: flex;
-  flex-direction: column;
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    text-decoration: none;
-    list-style: none;
-  }
-
-  li {
-    display: flex;
-    margin: 5px 20px;
-    p {
-      width: 80px;
-      font-weight: 600;
-      margin: 0 20px;
-    }
-  }
-`;
-
-const StyledImageText = styled.div`
-  position: absolute;
-  top: 10%;
-  right: 5%;
-  display: flex;
-  flex-direction: column;
-`;
-
-const StyledImage = styled.img`
-  width: 25vw;
-  height: 610px;
-  background-image: url(${({ cover }) => cover});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-`;
+import { BookWrapper, BookDetails, StyledImageText, StyledImage } from "../style/BooksPageStyle";
 
 export const query = graphql`
   query querySingleBook($id: String!) {
@@ -76,9 +24,13 @@ export const query = graphql`
 const BooksLayout = ({ data }) => {
   const { datoCmsBook: { author, title, description, kategoria, ocena, okladka, pages } } = data;
 
+  const state = React.useContext(GlobalStateContext);
+
   return (
     <Fragment>
-      <BookWrapper>
+      <FontButton />
+
+      <BookWrapper sFont={state.sFont}>
         <h1>{title}</h1>
         <h3>{author}</h3>
         <div dangerouslySetInnerHTML={{ __html: description }} />

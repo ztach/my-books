@@ -1,68 +1,43 @@
-import React, { Fragment } from "react"
-import { graphql } from "gatsby"
-import Image from "gatsby-image"
-import styled from "styled-components"
-
-const StyledWrapper = styled.div`
-  width: 50%;
-  height: 100vh;
-
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  font-weight: 700;
-  h1 {
-    font-size: ${({ theme }) => theme.fontSize.xxl};
-    margin: 0;
-  }
-  p {
-    margin: 20px 0 40px;
-    width: 50%;
-  }
-`
-
-const ImageWrapper = styled(Image)`
-  position: absolute !important;
-  top: 0;
-  right: 0;
-  width: 42%;
-  height: 100vh;
-  object-fit: cover;
-  background-color: ${({ theme }) => theme.index};
-  z-index: 100;
-`
-
-
-const Auth0Context = React.createContext();
-export { Auth0Context }
-
+import React, { useEffect, useRef } from "react";
+import { graphql } from "gatsby";
+import { StyledWrapper, StyledPageText } from "../style/IndeksPageStyle";
+import ImageWrapper from "../components/Images/ImageWrapper";
+import { TextArea } from "../components/Paragraph/Paragraph";
+import { Header1, Header2 } from "../components/Headers/Header";
+import KubekKawy from "../components/Animations/KubekKawy";
+import { gsap } from "gsap";
 
 const IndexPage = ({
-  data: {
-    datoCmsIndexpagetitle: {
-      author,
-      title,
-      description,
-      subtitle,
-      logo,
-      picturebiblioteka,
-    },
-  },
+  data: { datoCmsIndexpagetitle: { author, title, description, subtitle, logo, picturebiblioteka } }
 }) => {
+  const hellou = useRef(null);
+
+  useEffect(() => {
+    const [tytul, podtytul, opis, autor] = hellou.current.children;
+
+    gsap.set([tytul, podtytul, opis, autor], { autoAlpha: 0 });
+
+    const tl1 = gsap.timeline({ defaults: { ease: "power3.inOut" } });
+    tl1
+      .fromTo(tytul, { x: "-=300" }, { x: "+=300", duration: 3, autoAlpha: 1 })
+      .fromTo(podtytul, { x: "+=300" }, { x: "-=300", duration: 2, autoAlpha: 1 })
+      .fromTo(opis, { x: "-=300" }, { x: "+=300", duration: 2, autoAlpha: 1 })
+      .fromTo(autor, { x: "+=300" }, { x: "-=300", duration: 2, autoAlpha: 1 });
+  }, []);
+
   return (
-    <Fragment>
-      <StyledWrapper>
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
-        <p>{description}</p>
-        <span>{author}</span>
-      </StyledWrapper>
-      <ImageWrapper fluid={picturebiblioteka.fluid} />
-    </Fragment>
-  )
-}
+    <StyledWrapper>
+      <KubekKawy />
+      <StyledPageText ref={hellou}>
+        <Header1>{title}</Header1>
+        <Header2>{subtitle}</Header2>
+        <TextArea>{description}</TextArea>
+        <Header2>{author}</Header2>
+      </StyledPageText>
+      <ImageWrapper img={picturebiblioteka.fluid} />
+    </StyledWrapper>
+  );
+};
 
 export const query = graphql`
   {
@@ -79,6 +54,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;

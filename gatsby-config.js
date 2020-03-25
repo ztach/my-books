@@ -1,12 +1,12 @@
-require('dotenv').config();
+require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
     title: `Moje książki`,
-    subTitle: 'Lista moich ulubionych książek',
+    subTitle: "Lista moich ulubionych książek",
     description: `Witam wszystkich na mojej stronie. Bazgrolę tu sobie o moich ksiunżkach`,
-    welcome: 'Cześć książkoluby',
-    author: `@Staszek Olejnik`,
+    welcome: "Cześć książkoluby",
+    author: `@Staszek Olejnik`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -14,8 +14,22 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/assets`,
-      },
+        path: `${__dirname}/src/assets`
+      }
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/
+        }
+      }
+    },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -100
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -31,8 +45,8 @@ module.exports = {
         previewMode: false,
         // Disable automatic reloading of content when some change occurs on DatoCMS:
         disableLiveReload: false,
-        apiUrl: 'https://site-api.datocms.com',
-      },
+        apiUrl: "https://site-api.datocms.com"
+      }
     },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
@@ -41,21 +55,21 @@ module.exports = {
           {
             family: `Squada One`,
             subsets: [`latin-ext`],
-            variants: [`300`, `400`, `500`, `600`, `700`],
+            variants: [`300`, `400`, `500`, `600`, `700`]
           },
           {
             family: `Montserrat`,
             subsets: [`latin-ext`],
-            variants: [`300`, `400`, `500`, `600`, `700`],
+            variants: [`300`, `400`, `500`, `600`, `700`]
           },
 
           {
             family: `Roboto`,
             subsets: [`latin-ext`],
-            variants: [`300`, `400`, `500`, `700`],
-          },
-        ],
-      },
-    },
-  ],
+            variants: [`300`, `400`, `500`, `700`]
+          }
+        ]
+      }
+    }
+  ]
 };

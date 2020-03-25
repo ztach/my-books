@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import whithFontbutton from "../components/HOC/withFontbutton";
 import { graphql } from "gatsby";
 import BiographyDetail from "./../components/Biography/Biography";
+import { StyledButton, StyledButtonWrapper } from "../style/FontButtonStyle";
 
 const ArticleLayoutWrapper = styled.div`
   position: relative;
@@ -35,12 +37,22 @@ export const query = graphql`
   }
 `;
 
-const AuthorLayout = ({ data }) => {
-  const {
-    datoCmsAuthor: { biograpy, formatstyle },
-  } = data;
+const AuthorLayout = ({ data, sFont, oddSize, addSize, zeroSize }) => {
+  const { datoCmsAuthor: { biograpy, formatstyle } } = data;
   return (
     <ArticleLayoutWrapper>
+      <StyledButtonWrapper>
+        <StyledButton size={100} onClick={addSize}>
+          +
+        </StyledButton>
+        <StyledButton nr={0} size={50} onClick={zeroSize}>
+          {sFont}
+        </StyledButton>
+        <StyledButton size={0} onClick={oddSize}>
+          -
+        </StyledButton>
+      </StyledButtonWrapper>
+
       {biograpy.map(item => {
         const { id, name, subtitle, text, picture } = item;
         return (
@@ -52,6 +64,7 @@ const AuthorLayout = ({ data }) => {
             text={text}
             picture={picture}
             formatstyle={formatstyle}
+            sFont={sFont}
           />
         );
       })}
@@ -59,4 +72,4 @@ const AuthorLayout = ({ data }) => {
   );
 };
 
-export default AuthorLayout;
+export default whithFontbutton(AuthorLayout);

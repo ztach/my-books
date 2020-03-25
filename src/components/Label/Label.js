@@ -1,10 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Label = styled.label`
   display: block;
-  font-size: ${({ theme }) => theme.fontSize.xs};
-  color: ${({ theme }) => theme.qwintaly};
-  margin-bottom: 25px;
+  padding: 10px;
+  font-size: ${({ theme }) => theme.fontSize.s};
+  font-weight: ${({ theme }) => theme.bold};
+  color: ${({ theme }) => theme.secondaryTab[6]};
 `;
 
 export default Label;

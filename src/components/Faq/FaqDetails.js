@@ -1,28 +1,23 @@
 import React from "react";
 import Modal from "../Modal/Modal";
-import {StyledWrapper,StyledButton,StyledBlock} from './FaqDetailsStyle'
+import { StyledWrapper, StyledButton } from "./FaqDetailsStyle";
+import { Header2, Header3 } from "../Headers/Header";
+import ContainerRow from "../Container/ContainerRow";
 
-
-const FaqDetails = ({setOpenModal,getId, setData, openModal, id, text, title, subtitle, picture }) => {
-
-
+const FaqDetails = ({ setOpenModal, getId, setData, openModal, id, text, title, subtitle, picture }) => {
   return (
     <StyledWrapper key={id}>
-    <StyledBlock>
-      <StyledButton onClick={() => setData({id,title,subtitle,text})}>
-        <img src={picture.fixed.src} alt="logo ksiazki" />
-      </StyledButton>
+      <ContainerRow>
+        <StyledButton onClick={() => setData({ id, title, subtitle, text })}>
+          <img src={picture.fixed.src} alt="okrąg z napisem bookso" />
+        </StyledButton>
 
-        <h2>{title}</h2>
-    </StyledBlock>
+        <Header2>{title}</Header2>
+      </ContainerRow>
 
-      <div dangerouslySetInnerHTML={{ __html: subtitle }} />
-    
-      <Modal
-        openModal={openModal}
-        setOpenModal={setOpenModal} 
-        getId={getId}
-        />
+      <Header3 dangerouslySetInnerHTML={{ __html: subtitle }} />
+
+      <Modal openModal={openModal} setOpenModal={setOpenModal} getId={getId} />
     </StyledWrapper>
   );
 };
