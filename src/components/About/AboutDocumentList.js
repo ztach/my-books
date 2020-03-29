@@ -53,6 +53,7 @@ const data = useStaticQuery(graphql`
     <StyledPageWrapper>
     
       <AboutDocumenStyledtList 
+        
         title={uchwaly.node.title}
         images={uchwaly.node.picture.fixed.src}
         svgImage={uchwaly.node.picture.fixed.tracedSVG}

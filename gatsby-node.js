@@ -4,16 +4,17 @@ import { graphql } from 'gatsby';
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-const path = require("path")
+const path = require("path");
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-  const blogBooksTemplate = path.resolve(`src/layouts/books.js`)
-  const blogAuthorTemplate = path.resolve(`src/layouts/author.js`)
-  const component = path.resolve(`src/auth0/LoginCallback.js`)
+  const { createPage } = actions;
+  const blogBooksTemplate = path.resolve(`src/layouts/books.js`);
+  const blogAuthorTemplate = path.resolve(`src/layouts/author.js`);
+  //  const component = path.resolve(`src/auth0/LoginCallback.js`);
+  const userApp = path.resolve("src/pages/app.js");
 
   const result = await graphql(`
-    query queryBooks {
+  query queryBooks {
       allDatoCmsBook {
         __typename
         nodes {
@@ -21,6 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
           slag
         }
       }
+
       allDatoCmsAuthor {
         __typename
         nodes {
@@ -28,39 +30,50 @@ exports.createPages = async ({ graphql, actions }) => {
           slag
         }
       }
-    }
-  `)
 
-  if (
-    result.data.allDatoCmsBook.__typename === "DatoCmsBookConnection"
-  ) {
-    result.data.allDatoCmsBook.nodes.forEach(book => {
+      allSitePage {
+        __typename
+        nodes {
+          path
+          id
+        }
+      }
+  }
+`);
+
+  if (result.data.allDatoCmsBook.__typename === "DatoCmsBookConnection") {
+    const { data: { allDatoCmsBook: { nodes } } } = result;
+
+    nodes.forEach(({ id, slag }) => {
       createPage({
-        path: `booksArticle/${book.slag}`,
+        path: `booksArticle/${slag}`,
         component: blogBooksTemplate,
         context: {
-          id: book.id,
-        },
-      })
-    })
+          id: id
+        }
+      });
+    });
   }
-  if (
-    result.data.allDatoCmsAuthor.__typename ===
-    "DatoCmsAuthorConnection"
-  ) {
-    result.data.allDatoCmsAuthor.nodes.forEach(authr => {
+  if (result.data.allDatoCmsAuthor.__typename === "DatoCmsAuthorConnection") {
+    const { data: { allDatoCmsAuthor: { nodes } } } = result;
+    nodes.forEach(({ id, slag }) => {
       createPage({
-        path: `authorArticle/${authr.slag}`,
+        path: `authorArticle/${slag}`,
         component: blogAuthorTemplate,
         context: {
-          id: authr.id,
-        },
-      })
-    })
+          id: id
+        }
+      });
+    });
   }
+};
 
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions;
 
+  if (page.path.match(/^\/app/)) {
+    page.matchPath = `/app/*`;
 
-}
-
-
+    createPage(page);
+  }
+};

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { logout } from '../utils/auth';
 import { graphql } from "gatsby";
 import { StyledWrapper, StyledPageText } from "../style/IndeksPageStyle";
 import ImageWrapper from "../components/Images/ImageWrapper";
@@ -6,6 +7,14 @@ import { TextArea } from "../components/Paragraph/Paragraph";
 import { Header1, Header2 } from "../components/Headers/Header";
 import KubekKawy from "../components/Animations/KubekKawy";
 import { gsap } from "gsap";
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+  background-color:white;
+  border:none;
+  padding:15px;
+`;
+
 
 const IndexPage = ({
   data: { datoCmsIndexpagetitle: { author, title, description, subtitle, logo, picturebiblioteka } }
@@ -34,6 +43,9 @@ const IndexPage = ({
         <TextArea>{description}</TextArea>
         <Header2>{author}</Header2>
       </StyledPageText>
+      <StyledButton onClick={() => logout()}><span>{author}</span>
+      </StyledButton>
+       
       <ImageWrapper img={picturebiblioteka.fluid} />
     </StyledWrapper>
   );

@@ -9,7 +9,7 @@ import { StyledWrapper } from '../style/AuthorDayStyle';
 const AuthorDayPage = ({ data: { datoCmsAuthorday: { authorname } } }) => {
   
   const state = React.useContext(GlobalStateContext);  
-  console.log(state.sFont)
+
   return (
     <>
       <FontButton />
