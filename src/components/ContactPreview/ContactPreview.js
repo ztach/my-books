@@ -23,7 +23,6 @@ const ContactPreview = () => {
           axios
             .post("https://us-central1-mybook-email.cloudfunctions.net/sendEmail", values)
             .then(res => {
-              console.log(res);
               setSubmitting(false);
             })
             .catch(err => {

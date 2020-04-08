@@ -12,10 +12,10 @@ const StyledLogInWrapper = styled.button`
   align-items:center; 
   width: ${({ isNotLogin }) => isNotLogin ? '30%' : '20%' }; 
   height:${({ isNotLogin }) => isNotLogin ? '150px' : '50px' }; 
-  margin: ${({ isNotLogin }) => isNotLogin ? '0 150px' : '100px 0 0 0' }; 
+  margin: ${({ isNotLogin }) => isNotLogin ? '0 150px' : '50px 0 0 0' }; 
   
   background-color:${({ isNotLogin, theme }) => isNotLogin ? theme.secondaryTab[6] : 'rgb(219, 218, 219)' }; 
-  color:${({ isNotLogin, theme }) => isNotLogin ? theme.secondaryTab[0] : 'rgb(219, 218, 219)' }; 
+  color:${({ isNotLogin, theme }) => isNotLogin ?  theme.secondaryTab[1]: theme.secondaryTab[6]  }; 
   
 
 

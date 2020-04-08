@@ -10,6 +10,10 @@ const ImgWrapper = styled(Image)`
   
   box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.5);
   border-radius: 10px;
+  :hover{
+    box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 1);
+  }
+
 `;
 
 const ImageAuthor = ({ img }) => {
