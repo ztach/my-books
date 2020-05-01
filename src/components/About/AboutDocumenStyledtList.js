@@ -2,6 +2,7 @@ import React from "react";
 import Card from "../Card/Card";
 import Avatar from "../Avatar/Avatar";
 import styled from "styled-components";
+import WordIcon from '../../assets/icons/it-word-icon.svg'
 
 const StyledUchwalyWrapper = styled.div`
   padding: 80px 0 0 25px;
@@ -28,6 +29,7 @@ const StyledAvatar = styled(Avatar)`
   position:relative;
   right: -30px;
   top: 0px;
+  
 `;
 
 const StyledHeading = styled.div`
@@ -48,12 +50,21 @@ const StyledDocumentList = styled.div`
   grid-gap: 20px 20px;
 `;
 
+const StyledObrazek = styled.div`
+  width: 50px;
+  fill: red;
+  
+`;
+
+
 const AboutDocumenStyledtList = ({ title, images, svgImage, data }) => {
   return (
     <StyledUchwalyWrapper>
       <StyledHeading>
         <h2>{title}</h2>
-        <StyledAvatar icon={images} width="50px" />
+        <StyledAvatar />
+        <StyledObrazek><WordIcon  /></StyledObrazek>
+        
       </StyledHeading>
       <StyledDocumentList>
         {data.map(item => (

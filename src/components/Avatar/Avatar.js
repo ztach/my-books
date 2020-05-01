@@ -13,6 +13,7 @@ const Avatar = styled.img`
   background-repeat: no-repeat;
   background-position: 110%;
   background-size: 100%;
+  fill: blue;
 `;
 
 export default Avatar;
