@@ -1,68 +1,51 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { graphql } from "gatsby";
-import { login,logout } from '../utils/auth';
+import { login, logout, isLoggedIn, getCurrentUser } from "../utils/auth";
 import ImageWrapper from "../components/Images/ImageWrapper";
 import { HeaderWrapper as PageWrapper } from "../components/Headers/Header";
 import ContactPreview from "../components/ContactPreview/ContactPreview";
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const StyledLogInWrapper = styled.button` 
-  display:${({ isNotLogin }) => isNotLogin ? 'block' : 'flex' }; 
-  justify-content:space-evenly; 
-  align-items:center; 
-  width: ${({ isNotLogin }) => isNotLogin ? '30%' : '20%' }; 
-  height:${({ isNotLogin }) => isNotLogin ? '150px' : '50px' }; 
-  margin: ${({ isNotLogin }) => isNotLogin ? '0 150px' : '50px 0 0 0' }; 
-  
-  background-color:${({ isNotLogin, theme }) => isNotLogin ? theme.secondaryTab[6] : 'rgb(219, 218, 219)' }; 
-  color:${({ isNotLogin, theme }) => isNotLogin ?  theme.secondaryTab[1]: theme.secondaryTab[6]  }; 
-  
+const StyledLogInWrapper = styled.button`
+  display: ${({ isNotLogin }) => (isNotLogin ? "block" : "flex")};
+  justify-content: space-evenly;
+  align-items: center;
+  width: ${({ isNotLogin }) => (isNotLogin ? "30%" : "20%")};
+  height: ${({ isNotLogin }) => (isNotLogin ? "150px" : "50px")};
+  margin: ${({ isNotLogin }) => (isNotLogin ? "0 150px" : "-50px 0 0 550px")};
 
+  background-color: ${({ isNotLogin, theme }) => (isNotLogin ? theme.secondaryTab[6] : "rgb(219, 218, 219)")};
+  color: ${({ isNotLogin, theme }) => (isNotLogin ? theme.secondaryTab[1] : theme.secondaryTab[6])};
 
-  font-size:${({ isNotLogin }) => isNotLogin ? '50px' : '20px' } ; 
-  font-weight:700; 
-  box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.45); 
-  border-radius: 15px; 
-  border:none; 
-  :hover{ 
-    background-color:black; 
-    color:blanchedalmond; 
-    box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.95); 
-  } 
-`; 
+  font-size: ${({ isNotLogin }) => (isNotLogin ? "50px" : "20px")};
+  font-weight: 700;
+  box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.45);
+  border-radius: 15px;
+  border: none;
+  :hover {
+    background-color: black;
+    color: blanchedalmond;
+    box-shadow: 0 10px 30px -10px hsla(100, 0%, 0%, 0.95);
+  }
+`;
 
 const ContactPage = ({ data: { datoCmsListgraph: { picture } } }) => {
-
-  //   if (!isAuthenticated()) { 
-    //   login(); 
-  //   return <p>Przekierowanie do login...</p>; 
-  // } 
- 
-   const nickname = localStorage.getItem('nickname'); 
-   const name = localStorage.getItem('name'); 
-   const pictures = localStorage.getItem('picture'); 
-
+  const { nickname, name, logo } = getCurrentUser();
 
   return (
     <PageWrapper>
-            {name ? 
-        <> 
-          <ContactPreview /> 
-          <StyledLogInWrapper 
-            isNotLogin={false} 
-            onClick={ () => logout() } 
-        > 
-            <img src={pictures} alt="moje logo"  width="42" /> {nickname} - wyloguj się 
-        </StyledLogInWrapper> 
-        </> 
-        : 
-        <StyledLogInWrapper 
-          isNotLogin={true} 
-          onClick={ () => login() } 
-        > 
-          zaloguj się 
-        </StyledLogInWrapper> 
-      } 
+      {name ? (
+        <Fragment>
+          <ContactPreview />
+          <StyledLogInWrapper isNotLogin={false} onClick={() => logout()}>
+            <img src={logo} alt="moje logo" width="42" /> {nickname} - wyloguj się
+          </StyledLogInWrapper>
+        </Fragment>
+      ) : (
+        <StyledLogInWrapper isNotLogin={true} onClick={() => login()}>
+          zaloguj się
+        </StyledLogInWrapper>
+      )}
       <ImageWrapper img={picture.fluid} />
     </PageWrapper>
   );
