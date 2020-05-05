@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { graphql } from "gatsby";
-import { login, logout, isLoggedIn, getCurrentUser } from "../utils/auth";
+import { login, logout, getCurrentUser } from "../utils/auth";
 import ImageWrapper from "../components/Images/ImageWrapper";
 import { HeaderWrapper as PageWrapper } from "../components/Headers/Header";
 import ContactPreview from "../components/ContactPreview/ContactPreview";

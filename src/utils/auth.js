@@ -74,7 +74,7 @@ const setSession = (cb = () => {}) => (err, authResult) => {
       name,
       logo: picture
     });
-    cb();
+    //cb();
   }
 };
 
