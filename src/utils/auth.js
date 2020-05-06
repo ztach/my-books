@@ -7,12 +7,14 @@ const getUser = () => (window.localStorage.gatsbyUser ? JSON.parse(window.localS
 
 const setUser = user => (window.localStorage.gatsbyUser = JSON.stringify(user));
 
+console.log("env", process.env.GATSBY_AUTH0_DOMAIN);
+
 const auth = isBrowser
   ? new auth0.WebAuth({
-      domain: process.env.AUTH0_DOMAIN,
-      clientID: process.env.AUTH0_CLIENTID,
-      redirectUri: process.env.AUTH0_CALLBACK,
-      audience: process.env.AUTH0_AUDIENCE,
+      domain: process.env.GATSBY_AUTH0_DOMAIN,
+      clientID: process.env.GATSBY_AUTH0_CLIENTID,
+      redirectUri: process.env.GATSBY_AUTH0_CALLBACK,
+      audience: process.env.GATSBY_AUTH0_AUDIENCE,
       responseType: "token id_token",
       scope: "openid profile email"
     })
@@ -68,13 +70,13 @@ const setSession = (cb = () => {}) => (err, authResult) => {
     const { nickname, name, picture } = user;
 
     navigate("/contact");
-    setUser({
+    cb();
+    return setUser({
       isLoggedIn: true,
       nickname,
       name,
       logo: picture
     });
-    cb();
   }
 };
 
