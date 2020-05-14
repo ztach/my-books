@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { graphql } from "gatsby";
-import { login, logout, getCurrentUser } from "../utils/auth";
+//import { login, logout, getCurrentUser } from "../utils/auth";
 import ImageWrapper from "../components/Images/ImageWrapper";
 import { HeaderWrapper as PageWrapper } from "../components/Headers/Header";
 import ContactPreview from "../components/ContactPreview/ContactPreview";
@@ -30,21 +30,18 @@ const StyledLogInWrapper = styled.button`
 `;
 
 const ContactPage = ({ data: { datoCmsListgraph: { picture } } }) => {
-  const { nickname, name, logo } = getCurrentUser();
+  //const { nickname, name, logo } = getCurrentUser();
+
+  const name = "JA";
 
   return (
     <PageWrapper>
       {name ? (
         <Fragment>
           <ContactPreview />
-          <StyledLogInWrapper isNotLogin={false} onClick={() => logout()}>
-            <img src={logo} alt="moje logo" width="42" /> {nickname} - wyloguj się
-          </StyledLogInWrapper>
         </Fragment>
       ) : (
-        <StyledLogInWrapper isNotLogin={true} onClick={() => login()}>
-          zaloguj się
-        </StyledLogInWrapper>
+        <StyledLogInWrapper>zaloguj się</StyledLogInWrapper>
       )}
       <ImageWrapper img={picture.fluid} />
     </PageWrapper>

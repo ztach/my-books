@@ -7,14 +7,11 @@ const getUser = () => (window.localStorage.gatsbyUser ? JSON.parse(window.localS
 
 const setUser = user => (window.localStorage.gatsbyUser = JSON.stringify(user));
 
-console.log("env", process.env.GATSBY_AUTH0_DOMAIN);
-
 const auth = isBrowser
   ? new auth0.WebAuth({
       domain: process.env.GATSBY_AUTH0_DOMAIN,
       clientID: process.env.GATSBY_AUTH0_CLIENTID,
       redirectUri: process.env.GATSBY_AUTH0_CALLBACK,
-      audience: process.env.GATSBY_AUTH0_AUDIENCE,
       responseType: "token id_token",
       scope: "openid profile email"
     })
@@ -44,19 +41,12 @@ export const login = () => {
   auth.authorize();
 };
 
-export const isLoggedIn = () => {
-  if (!isBrowser) return false;
-
-  const user = getUser();
-
-  return !!user.email;
-};
-
 export const getCurrentUser = () => isBrowser && getUser();
 
 const setSession = (cb = () => {}) => (err, authResult) => {
+  console.log("setSession", err);
   if (err) {
-    navigate("/contact");
+    navigate("/");
     cb();
     return;
   }
@@ -67,17 +57,26 @@ const setSession = (cb = () => {}) => (err, authResult) => {
     tokens.idToken = authResult.idToken;
     tokens.expiresAt = expiresAt;
     user = authResult.idTokenPayload;
+    localStorage.setItem("isLoggedIn", true);
+    navigate("/account");
     const { nickname, name, picture } = user;
 
     navigate("/contact");
-    cb();
-    return setUser({
+
+    setUser({
       isLoggedIn: true,
       nickname,
       name,
       logo: picture
     });
+
+    cb();
   }
+};
+
+export const silentAuth = callback => {
+  if (!isAuthenticated()) return callback();
+  auth.checkSession({}, setSession(callback));
 };
 
 export const handleAuthentication = () => {
@@ -93,16 +92,6 @@ export const getProfile = () => {
 };
 
 export const logout = () => {
+  localStorage.setItem("isLoggedIn", false);
   auth.logout();
-  return setUser({
-    isLoggedIn: false,
-    nickname: "",
-    name: "",
-    logo: ""
-  });
 };
-
-// export const silentAuth = callback => {
-//   if (!isAuthenticated()) return callback();
-//   auth.checkSession({}, setSession(callback));
-// };
